@@ -1,10 +1,9 @@
 #!/usr/bin/python3
 
-from adventure_game.models import Room
 from adventure_game.models import Item
-from adventure_game.models import RoomExitsScheme
 from adventure_game.models import Player
 import adventure_game.constants as constants
+from adventure_game.factories import RoomFactory
 
 rooms = {}
 items = {}
@@ -25,26 +24,39 @@ def setup_game():
         new_item = Item(str(x), "Item {0}".format(x), "Cool item number {0}".format(x))
         items[str(x)] = new_item
 
+    room_factory = RoomFactory(constants)
+
     library_exits_scheme = \
-        RoomExitsScheme(east_room_id="restaurant", west_room_id="lab", north_room_id="workshop", south_room_id="office")
+        room_factory.get_room_exits(
+            east_room_id="restaurant",
+            west_room_id="lab",
+            north_room_id="workshop",
+            south_room_id="office")
 
     library = \
-        Room("library", "Cardiff library", "You can find books here", library_exits_scheme, [items["0"], items["2"]])
+        room_factory.get_room(
+            "library",
+            "Cardiff library",
+            "You can find books here",
+            library_exits_scheme,
+            [items["0"], items["2"]])
     rooms[library.id] = library
 
-    restaurant_exits_scheme = RoomExitsScheme(west_room_id="library")
-    restaurant = Room("restaurant", "The Restaurant", "Drink and eat", restaurant_exits_scheme)
+    restaurant_exits_scheme = room_factory.get_room_exits(west_room_id="library")
+    restaurant = room_factory.get_room("restaurant", "The Restaurant", "Drink and eat", restaurant_exits_scheme)
     rooms[restaurant.id] = restaurant
 
-    lab_exits_scheme = RoomExitsScheme(east_room_id="library")
-    lab = Room("lab", "PC Lab", "A room full of computers", lab_exits_scheme, [items["1"]])
+    lab_exits_scheme = room_factory.get_room_exits(east_room_id="library")
+    lab = room_factory.get_room("lab", "PC Lab", "A room full of computers", lab_exits_scheme, [items["1"]])
     rooms[lab.id] = lab
 
-    workshop_exits_scheme = RoomExitsScheme(south_room_id="library")
-    workshop = Room("workshop", "The Workshop", "vrum vrum", workshop_exits_scheme, [items["3"], items["5"]])
+    workshop_exits_scheme = room_factory.get_room_exits(south_room_id="library")
+    workshop = \
+        room_factory.get_room("workshop", "The Workshop", "vrum vrum", workshop_exits_scheme, [items["3"], items["5"]])
     rooms[workshop.id] = workshop
 
-    office = Room("office", "The main office", "You are trapped. There are no exits", items=[items["4"]])
+    office = \
+        room_factory.get_room("office", "The main office", "You are trapped. There are no exits", items=[items["4"]])
     rooms[office.id] = office
 
     global player
@@ -60,17 +72,11 @@ def get_next_room(room_id):
 
 def execute_go(direction):
 
-    if direction == constants.DIRECTION_EAST:
-        next_room = get_next_room(player.location.exits.east_room_id)
-    elif direction == constants.DIRECTION_WEST:
-        next_room = get_next_room(player.location.exits.west_room_id)
-    elif direction == constants.DIRECTION_NORTH:
-        next_room = get_next_room(player.location.exits.north_room_id)
-    elif direction == constants.DIRECTION_SOUTH:
-        next_room = get_next_room(player.location.exits.south_room_id)
-    else:
-        print("Uhm what?")
-        return
+    if direction not in player.location.exits:
+        print_separator()
+        print("Invalid direction")
+
+    next_room = get_next_room(player.location.exits[direction])
 
     if not next_room:
         print("You can't go there")
@@ -133,7 +139,13 @@ def print_current_game_info():
     for i in player.inventory:
         print("Type DROP {0} to drop {1}".format(i.id, i.name))
 
-    print("Try wondering")
+    for direction in player.location.exits:
+        if not player.location.exits[direction]:
+            continue
+
+        room_exit = rooms[player.location.exits[direction]]
+
+        print("Type GO {0} to go to {1}".format(direction.upper(), room_exit.name))
 
 
 def main():
