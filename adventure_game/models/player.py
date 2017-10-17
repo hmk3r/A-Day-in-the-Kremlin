@@ -10,3 +10,6 @@ class Player:
 
     def drop_item(self, item):
         self.inventory.remove(item)
+
+    def move_to(self, room):
+        self.location = room
