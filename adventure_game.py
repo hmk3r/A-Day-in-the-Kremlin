@@ -79,6 +79,7 @@ def execute_go(direction):
     next_room = get_next_room(player.location.exits[direction])
 
     if not next_room:
+        print_separator()
         print("You can't go there")
         return
 
@@ -86,13 +87,33 @@ def execute_go(direction):
 
 
 def execute_take(item_id):
+    if item_id not in items:
+        print_separator()
+        print("No such thing exists")
+        return
     item = items[item_id]
+
+    if item not in player.location.items:
+        print_separator()
+        print("There's no such item in the room")
+        return
+
     player.location.items.remove(item)
     player.take_item(item)
 
 
 def execute_drop(item_id):
+    if item_id not in items:
+        print_separator()
+        print("No such thing exists")
+        return
     item = items[item_id]
+
+    if item not in player.inventory:
+        print_separator()
+        print("You don't have this item")
+        return
+
     player.inventory.remove(item)
     player.location.items.append(item)
 
