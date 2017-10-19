@@ -2,7 +2,6 @@ from adventure_game.models import Room
 
 
 class RoomFactory:
-
     def __init__(self, constants):
         self.constants = constants
         pass
@@ -20,4 +19,3 @@ class RoomFactory:
             exits = self.get_room_exits()
 
         return Room(room_id, name, description, exits, items)
-
