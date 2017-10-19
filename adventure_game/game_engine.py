@@ -1,6 +1,5 @@
 from adventure_game.contracts import *
-from adventure_game.models import Item, Player
-from adventure_game.factories import RoomFactory
+from adventure_game.factories import RoomFactory, ItemFactory, PlayerFactory
 import adventure_game.constants as constants
 
 
@@ -127,11 +126,13 @@ class GameEngine(IEngine):
         """ A temporary solution until I find out how to load all the data from an external file.
         Just ignore this for now.
         """
-        for x in range(0, 6):
-            new_item = Item(str(x), "Item {0}".format(x), "Cool item number {0}".format(x))
-            self.items[str(x)] = new_item
-
+        item_factory = ItemFactory()
+        player_factory = PlayerFactory()
         room_factory = RoomFactory(constants)
+
+        for x in range(0, 6):
+            new_item = item_factory.create_item(str(x), "Item {0}".format(x), "Cool item number {0}".format(x))
+            self.items[str(x)] = new_item
 
         library_exits_scheme = \
             room_factory.create_room_exits(
@@ -168,4 +169,4 @@ class GameEngine(IEngine):
                                      items=[self.items["4"]])
         self.rooms[office.id] = office
 
-        self.player = Player("John Doe", library)
+        self.player = player_factory.create_player("John Doe", library)
