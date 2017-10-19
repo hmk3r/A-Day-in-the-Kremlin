@@ -1,6 +1,8 @@
-class Player:
+from adventure_game.models.contracts import IPlayer, IRoom
 
-    def __init__(self, name, location, inventory=[]):
+
+class Player(IPlayer):
+    def __init__(self, name, location: IRoom, inventory=[]):
         self.name = name
         self.location = location
         self.inventory = inventory
@@ -11,5 +13,5 @@ class Player:
     def drop_item(self, item):
         self.inventory.remove(item)
 
-    def move_to(self, room):
-        self.location = room
+    def move_to(self, location):
+        self.location = location

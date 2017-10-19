@@ -134,14 +134,14 @@ class GameEngine(IEngine):
         room_factory = RoomFactory(constants)
 
         library_exits_scheme = \
-            room_factory.get_room_exits(
+            room_factory.create_room_exits(
                 east_room_id="restaurant",
                 west_room_id="lab",
                 north_room_id="workshop",
                 south_room_id="office")
 
         library = \
-            room_factory.get_room(
+            room_factory.create_room(
                 "library",
                 "Cardiff library",
                 "You can find books here",
@@ -149,23 +149,23 @@ class GameEngine(IEngine):
                 [self.items["0"], self.items["2"]])
         self.rooms[library.id] = library
 
-        restaurant_exits_scheme = room_factory.get_room_exits(west_room_id="library")
-        restaurant = room_factory.get_room("restaurant", "The Restaurant", "Drink and eat", restaurant_exits_scheme)
+        restaurant_exits_scheme = room_factory.create_room_exits(west_room_id="library")
+        restaurant = room_factory.create_room("restaurant", "The Restaurant", "Drink and eat", restaurant_exits_scheme)
         self.rooms[restaurant.id] = restaurant
 
-        lab_exits_scheme = room_factory.get_room_exits(east_room_id="library")
-        lab = room_factory.get_room("lab", "PC Lab", "A room full of computers", lab_exits_scheme, [self.items["1"]])
+        lab_exits_scheme = room_factory.create_room_exits(east_room_id="library")
+        lab = room_factory.create_room("lab", "PC Lab", "A room full of computers", lab_exits_scheme, [self.items["1"]])
         self.rooms[lab.id] = lab
 
-        workshop_exits_scheme = room_factory.get_room_exits(south_room_id="library")
+        workshop_exits_scheme = room_factory.create_room_exits(south_room_id="library")
         workshop = \
-            room_factory.get_room("workshop", "The Workshop", "vrum vrum", workshop_exits_scheme,
-                                  [self.items["3"], self.items["5"]])
+            room_factory.create_room("workshop", "The Workshop", "vrum vrum", workshop_exits_scheme,
+                                     [self.items["3"], self.items["5"]])
         self.rooms[workshop.id] = workshop
 
         office = \
-            room_factory.get_room("office", "The main office", "You are trapped. There are no exits",
-                                  items=[self.items["4"]])
+            room_factory.create_room("office", "The main office", "You are trapped. There are no exits",
+                                     items=[self.items["4"]])
         self.rooms[office.id] = office
 
         self.player = Player("John Doe", library)
