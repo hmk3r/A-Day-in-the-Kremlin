@@ -30,8 +30,7 @@ def setup_game():
         room_factory.get_room_exits(
             east_room_id="restaurant",
             west_room_id="lab",
-            north_room_id="workshop",
-            south_room_id="office")
+            north_room_id="workshop")
 
     library = \
         room_factory.get_room(
