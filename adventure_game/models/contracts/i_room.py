@@ -1,4 +1,4 @@
-from abc import ABCMeta
+from abc import ABCMeta, abstractmethod
 
 
 class IRoom(metaclass=ABCMeta):
@@ -7,3 +7,7 @@ class IRoom(metaclass=ABCMeta):
     description = ""
     exits = {}
     items = []
+
+    @abstractmethod
+    def is_completed(self):
+        pass

@@ -18,7 +18,7 @@ class GameEngine(IEngine):
         while True:
             self.print_current_game_info()
 
-            user_input = self.reader.read_input("What would you ike to do? ")
+            user_input = self.reader.read_input("What would you ike to do? >")
             command = self.parser.parse_command(user_input)
             self.execute_command(command)
 
@@ -128,7 +128,7 @@ class GameEngine(IEngine):
         """
         item_factory = ItemFactory()
         player_factory = PlayerFactory()
-        room_factory = RoomFactory(constants)
+        room_factory = RoomFactory()
 
         for x in range(0, 6):
             new_item = item_factory.create_item(str(x), "Item {0}".format(x), "Cool item number {0}".format(x))
