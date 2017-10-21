@@ -6,6 +6,7 @@ import adventure_game.constants as constants
 class GameEngine(IEngine):
     rooms = {}
     items = {}
+    puzzles = {}
     player = None
 
     def __init__(self, writer: IWriter, reader: IReader, parser: IParser):
@@ -73,6 +74,48 @@ class GameEngine(IEngine):
         self.player.inventory.remove(item)
         self.player.location.items.append(item)
 
+    def execute_solve(self, puzzle_id):
+        if puzzle_id not in self.puzzles:
+            self.writer.write_separator()
+            self.writer.write("There's no such puzzle")
+            return
+        puzzle = self.puzzles[puzzle_id]
+
+        if puzzle not in self.player.location.puzzles:
+            self.writer.write_separator()
+            self.writer.write("You can't solve this puzzle right now")
+            return
+
+        if puzzle.is_solved:
+            self.writer.write_separator()
+            self.writer.write("You've already solved this puzzle")
+            return
+
+        self.writer.write_separator()
+        self.writer.write(puzzle.name.upper())
+
+        self.writer.write_separator()
+        self.writer.write(puzzle.description)
+
+        if puzzle.reward:
+            self.writer.write("You'll get {0} if you solve this correctly".format(puzzle.reward.name))
+
+        self.writer.write_separator()
+        self.writer.write("Possible answers:")
+        for possible_answer in puzzle.possible_answers:
+            self.writer.write(possible_answer)
+
+        answer = self.reader.read_input("Answer: ")
+
+        if puzzle.answer_is_correct(answer):
+            self.writer.write_separator()
+            self.writer.write("Correct answer!")
+            if puzzle.reward:
+                self.writer.write("Here's your {0}".format(puzzle.reward.name))
+                self.player.inventory.append(puzzle.reward)
+        else:
+            self.writer.write("Wrong answer!")
+
     def execute_command(self, command):
 
         if 0 == len(command):
@@ -96,6 +139,11 @@ class GameEngine(IEngine):
             else:
                 self.writer.write("Drop what?")
 
+        elif command[0] == constants.COMMAND_SOLVE:
+            if len(command) > 1:
+                self.execute_solve(command[1])
+            else:
+                self.writer.write("Solve what?")
         else:
             self.writer.write("This makes no sense.")
 
@@ -108,6 +156,11 @@ class GameEngine(IEngine):
         self.writer.write_separator()
 
         self.writer.write("You can:")
+
+        for puzzle in self.player.location.puzzles:
+            if not puzzle.is_solved:
+                self.writer.write("Type SOLVE {0} to solve {1}.".format(puzzle.id, puzzle.name))
+
         for item in self.player.location.items:
             self.writer.write("Type TAKE {0} to take {1}".format(item.id, item.name))
 

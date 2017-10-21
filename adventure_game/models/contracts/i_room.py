@@ -7,6 +7,7 @@ class IRoom(metaclass=ABCMeta):
     description = ""
     exits = {}
     items = []
+    puzzles = []
 
     @abstractmethod
     def is_completed(self):

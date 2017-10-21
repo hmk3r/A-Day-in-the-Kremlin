@@ -11,12 +11,15 @@ class Room(IRoom):
                  east_room_id=None,
                  west_room_id=None,
                  north_room_id=None,
-                 south_room_id=None):
+                 south_room_id=None,
+                 puzzles=[]):
+
         self.id = room_id
         self.name = name
         self.description = description
         self.items = items
         self.exits = self._create_exist_scheme(east_room_id, west_room_id, north_room_id, south_room_id)
+        self.puzzles = puzzles
 
     def is_completed(self):
         return True
