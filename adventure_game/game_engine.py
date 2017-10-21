@@ -1,4 +1,5 @@
 from adventure_game.contracts import *
+from adventure_game.models import Puzzle
 from adventure_game.factories import RoomFactory, ItemFactory, PlayerFactory
 import adventure_game.constants as constants
 
@@ -159,7 +160,7 @@ class GameEngine(IEngine):
 
         for puzzle in self.player.location.puzzles:
             if not puzzle.is_solved:
-                self.writer.write("Type SOLVE {0} to solve {1}.".format(puzzle.id, puzzle.name))
+                self.writer.write("Type SOLVE {0} to solve {1}.".format(puzzle.id.upper(), puzzle.name))
 
         for item in self.player.location.items:
             self.writer.write("Type TAKE {0} to take {1}".format(item.id, item.name))
@@ -203,18 +204,46 @@ class GameEngine(IEngine):
                 [self.items["0"], self.items["2"]])
         self.rooms[library.id] = library
 
+        restaurant_puzzle = Puzzle("puzzle", "a mystery", "You're 3yo. How old are you?", ["0", "10", "15"], "3")
+        self.puzzles[restaurant_puzzle.id] = restaurant_puzzle
+
         restaurant_exits_scheme = room_factory.create_room_exits(west_room_id="library")
-        restaurant = room_factory.create_room("restaurant", "The Restaurant", "Drink and eat", restaurant_exits_scheme)
+        restaurant = room_factory.create_room("restaurant",
+                                              "The Restaurant",
+                                              "Drink and eat",
+                                              restaurant_exits_scheme,
+                                              puzzles=[restaurant_puzzle])
         self.rooms[restaurant.id] = restaurant
 
+        lab_puzzle = Puzzle("quest",
+                            "the hard quest",
+                            "This quest is pointless. But so is a circle. What's the answer?",
+                            ["You have to guess"],
+                            "42",
+                            self.items["5"])
+        self.puzzles[lab_puzzle.id] = lab_puzzle
+
+        second_lab_puzzle = Puzzle("harder_quest",
+                                   "the harder quest",
+                                   "13",
+                                   ["You have to guess"],
+                                   "37")
+        self.puzzles[second_lab_puzzle.id] = second_lab_puzzle
+
         lab_exits_scheme = room_factory.create_room_exits(east_room_id="library")
-        lab = room_factory.create_room("lab", "PC Lab", "A room full of computers", lab_exits_scheme, [self.items["1"]])
+        lab = room_factory.create_room("lab",
+                                       "PC Lab",
+                                       "A room full of computers",
+                                       lab_exits_scheme,
+                                       items=[self.items["1"]],
+                                       puzzles=[lab_puzzle, second_lab_puzzle])
+
         self.rooms[lab.id] = lab
 
         workshop_exits_scheme = room_factory.create_room_exits(south_room_id="library")
         workshop = \
             room_factory.create_room("workshop", "The Workshop", "vrum vrum", workshop_exits_scheme,
-                                     [self.items["3"], self.items["5"]])
+                                     [self.items["3"]])
         self.rooms[workshop.id] = workshop
 
         office = \

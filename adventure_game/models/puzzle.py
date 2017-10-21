@@ -9,6 +9,7 @@ class Puzzle(IPuzzle):
         self.possible_answers = possible_answers
         self.correct_answer = correct_answer
         self.reward = reward
+        self.is_solved = False
 
     def answer_is_correct(self, answer):
         self.is_solved = answer == self.correct_answer
