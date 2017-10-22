@@ -44,5 +44,5 @@ class Puzzle(IPuzzle):
         return self._id
 
     def answer_is_correct(self, answer):
-        self._is_solved = answer == self.correct_answer
+        self._is_solved = answer[0] == self.correct_answer
         return self.is_solved
