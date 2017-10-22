@@ -1,5 +1,4 @@
 from adventure_game.models import Room
-from adventure_game.models.contracts import IRoom
 from adventure_game.factories.contracts import IRoomFactory
 import adventure_game.constants as constants
 
@@ -16,7 +15,7 @@ class RoomFactory(IRoomFactory):
             constants.DIRECTION_SOUTH: south_room_id
         }
 
-    def create_room(self, room_id, name, description, exits=None, items=[], puzzles=[]) -> IRoom:
+    def create_room(self, room_id, name, description, exits=None, items=[], puzzles=[]):
         if not exits:
             exits = self.create_room_exits()
 

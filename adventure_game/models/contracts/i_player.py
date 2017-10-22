@@ -2,9 +2,25 @@ from abc import ABCMeta, abstractmethod
 
 
 class IPlayer(metaclass=ABCMeta):
-    name = ""
-    location = None
-    inventory = []
+    @property
+    @abstractmethod
+    def name(self):
+        pass
+
+    @property
+    @abstractmethod
+    def location(self):
+        pass
+
+    @location.setter
+    @abstractmethod
+    def location(self, value):
+        pass
+
+    @property
+    @abstractmethod
+    def inventory(self):
+        pass
 
     @abstractmethod
     def take_item(self, item):

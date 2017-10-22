@@ -211,8 +211,9 @@ class GameEngine(IEngine):
         restaurant = room_factory.create_room("restaurant",
                                               "The Restaurant",
                                               "Drink and eat",
-                                              restaurant_exits_scheme,
-                                              puzzles=[restaurant_puzzle])
+                                              restaurant_exits_scheme)
+        restaurant.puzzles.append(restaurant_puzzle)
+
         self.rooms[restaurant.id] = restaurant
 
         lab_puzzle = Puzzle("quest",
@@ -223,7 +224,7 @@ class GameEngine(IEngine):
                             self.items["5"])
         self.puzzles[lab_puzzle.id] = lab_puzzle
 
-        second_lab_puzzle = Puzzle("harder_quest",
+        second_lab_puzzle = Puzzle("harderquest",
                                    "the harder quest",
                                    "13",
                                    ["You have to guess"],
@@ -234,16 +235,15 @@ class GameEngine(IEngine):
         lab = room_factory.create_room("lab",
                                        "PC Lab",
                                        "A room full of computers",
-                                       lab_exits_scheme,
-                                       items=[self.items["1"]],
-                                       puzzles=[lab_puzzle, second_lab_puzzle])
-
+                                       lab_exits_scheme)
+        lab.items.append(self.items["1"])
+        lab.puzzles.append(lab_puzzle)
+        lab.puzzles.append(second_lab_puzzle)
         self.rooms[lab.id] = lab
 
         workshop_exits_scheme = room_factory.create_room_exits(south_room_id="library")
         workshop = \
-            room_factory.create_room("workshop", "The Workshop", "vrum vrum", workshop_exits_scheme,
-                                     [self.items["3"]])
+            room_factory.create_room("workshop", "The Workshop", "vrum vrum", workshop_exits_scheme)
         self.rooms[workshop.id] = workshop
 
         office = \

@@ -1,7 +1,18 @@
-from abc import ABCMeta
+from abc import ABCMeta, abstractmethod
 
 
 class IItem(metaclass=ABCMeta):
-    id = ""
-    name = ""
-    description = ""
+    @property
+    @abstractmethod
+    def id(self):
+        pass
+
+    @property
+    @abstractmethod
+    def name(self):
+        pass
+
+    @property
+    @abstractmethod
+    def description(self):
+        pass
