@@ -1,11 +1,11 @@
 from adventure_game.contracts import IObjectsLoader
 from adventure_game.factories.contracts import *
+from adventure_game.models import Room, Puzzle
 from bs4 import BeautifulSoup
 import os
 
 
 class ObjectsLoader(IObjectsLoader):
-
     def __init__(self,
                  item_factory: IItemFactory,
                  puzzle_factory: IPuzzleFactory,
@@ -26,12 +26,28 @@ class ObjectsLoader(IObjectsLoader):
 
     def load(self):
         self._parse_xml(os.path.abspath("adventure_game/game_objects/data.xml"))
+        self.load_custom_objects()
         self.convert_objects()
 
         return [self.items_as_objects,
                 self.puzzles_as_objects,
                 self.rooms_as_objects,
                 self.player_as_object]
+
+    # reference - adapted from:
+    # https://stackoverflow.com/questions/34554856/python-instantiate-all-classes-within-a-module Jan 1 '16 at 9:03
+    # Creates a new instance of all subclasses of a class
+    def load_custom_objects(self):
+        custom_puzzles = [puzzle_obj() for puzzle_obj in Puzzle.__subclasses__()]
+        custom_rooms = [room_obj() for room_obj in Room.__subclasses__()]
+
+        for puzzle in custom_puzzles:
+            self.puzzles_as_objects[puzzle.id] = puzzle
+
+        for room in custom_rooms:
+            self.rooms_as_objects[room.id] = room
+
+    # end reference
 
     def convert_objects(self):
         self.convert_items()
@@ -48,20 +64,37 @@ class ObjectsLoader(IObjectsLoader):
 
     def convert_puzzles(self):
         for puzzle_id in self.raw_puzzles:
-            puzzle_object = self.puzzle_factory.create_puzzle(puzzle_id,
-                                                              self.raw_puzzles[puzzle_id]["name"],
-                                                              self.raw_puzzles[puzzle_id]["description"],
-                                                              self.raw_puzzles[puzzle_id]["possible_answers"],
-                                                              self.raw_puzzles[puzzle_id]["correct_answer"])
+            is_custom_puzzle = puzzle_id in self.puzzles_as_objects
+            puzzle_name = self.raw_puzzles[puzzle_id]["name"]
+            puzzle_description = self.raw_puzzles[puzzle_id]["description"]
+            puzzle_possible_answers = self.raw_puzzles[puzzle_id]["possible_answers"]
+            puzzle_correct_answer = self.raw_puzzles[puzzle_id]["correct_answer"]
+
+            if is_custom_puzzle:
+                puzzle = self.puzzles_as_objects[puzzle_id]
+                puzzle._name = puzzle_name
+                puzzle._description = puzzle_description
+                puzzle._possible_answers = puzzle_possible_answers
+                puzzle._correct_answer = puzzle_correct_answer
+            else:
+                puzzle = self.puzzle_factory.create_puzzle(puzzle_id,
+                                                           puzzle_name,
+                                                           puzzle_description,
+                                                           puzzle_possible_answers,
+                                                           puzzle_correct_answer)
 
             reward_item_id = self.raw_puzzles[puzzle_id]["reward_item_id"]
             if reward_item_id:
-                puzzle_object.reward = self.items_as_objects[reward_item_id]
+                puzzle.reward = self.items_as_objects[reward_item_id]
 
-            self.puzzles_as_objects[puzzle_id] = puzzle_object
+            self.puzzles_as_objects[puzzle_id] = puzzle
 
     def convert_rooms(self):
         for room_id in self.raw_rooms:
+            is_custom_room = room_id in self.rooms_as_objects
+            room_name = self.raw_rooms[room_id]["name"]
+            room_description = self.raw_rooms[room_id]["description"]
+            room_exits = self.raw_rooms[room_id]["exits"]
 
             room_items = []
             for item_id in self.raw_rooms[room_id]["room_item_ids"]:
@@ -71,14 +104,22 @@ class ObjectsLoader(IObjectsLoader):
             for puzzle_id in self.raw_rooms[room_id]["room_puzzles_ids"]:
                 room_puzzles.append(self.puzzles_as_objects[puzzle_id])
 
-            room_as_object = self.room_factory.create_room(room_id,
-                                                           self.raw_rooms[room_id]["name"],
-                                                           self.raw_rooms[room_id]["description"],
-                                                           exits=self.raw_rooms[room_id]["exits"],
-                                                           items=room_items,
-                                                           puzzles=room_puzzles)
+            if is_custom_room:
+                room = self.rooms_as_objects[room_id]
+                room._name = room_name
+                room._description = room_description
+                room._exits = room_exits
+                room._items = room_items
+                room._puzzles = room_puzzles
+            else:
+                room = self.room_factory.create_room(room_id,
+                                                     room_name,
+                                                     room_description,
+                                                     exits=room_exits,
+                                                     items=room_items,
+                                                     puzzles=room_puzzles)
 
-            self.rooms_as_objects[room_id] = room_as_object
+            self.rooms_as_objects[room_id] = room
 
     def convert_player(self):
         player_inventory = []
