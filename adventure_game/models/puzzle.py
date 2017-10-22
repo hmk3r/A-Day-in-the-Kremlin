@@ -2,11 +2,11 @@ from adventure_game.models.contracts import IPuzzle
 
 
 class Puzzle(IPuzzle):
-    def __init__(self, puzzle_id, name, description, possible_answers, correct_answer, reward=None):
+    def __init__(self, puzzle_id, name=None, description=None, possible_answers=None, correct_answer=None, reward=None):
         self._id = puzzle_id
         self._name = name
         self._description = description
-        self._possible_answers = possible_answers
+        self._possible_answers = possible_answers if possible_answers else []
         self._correct_answer = correct_answer
         self._reward = reward
         self._is_solved = False

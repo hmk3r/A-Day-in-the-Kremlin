@@ -4,8 +4,8 @@ from adventure_game.models.contracts import IRoom
 class Room(IRoom):
     def __init__(self,
                  room_id,
-                 name,
-                 description,
+                 name=None,
+                 description=None,
                  items=None,
                  exits=None,
                  puzzles=None):

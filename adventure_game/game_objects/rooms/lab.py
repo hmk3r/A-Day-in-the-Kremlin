@@ -3,7 +3,7 @@ from adventure_game.models import Room
 
 class Lab(Room):
     def __init__(self):
-        super().__init__("lab", "", "")
+        super().__init__("lab")
 
     @property
     def is_completed(self):
