@@ -1,5 +1,4 @@
 from adventure_game.models.contracts import IRoom
-import adventure_game.constants as constants
 
 
 class Room(IRoom):
@@ -8,17 +7,14 @@ class Room(IRoom):
                  name,
                  description,
                  items=None,
-                 east_room_id=None,
-                 west_room_id=None,
-                 north_room_id=None,
-                 south_room_id=None,
+                 exits=None,
                  puzzles=None):
 
         self._id = room_id
         self._name = name
         self._description = description
         self._items = items if items else []
-        self._exits = self._create_exist_scheme(east_room_id, west_room_id, north_room_id, south_room_id)
+        self._exits = exits if exits else {}
         self._puzzles = puzzles if puzzles else []
 
     @property
@@ -52,12 +48,3 @@ class Room(IRoom):
     @property
     def is_completed(self):
         return True
-
-    @staticmethod
-    def _create_exist_scheme(east_room_id=None, west_room_id=None, north_room_id=None, south_room_id=None):
-        return {
-            constants.DIRECTION_EAST: east_room_id,
-            constants.DIRECTION_WEST: west_room_id,
-            constants.DIRECTION_NORTH: north_room_id,
-            constants.DIRECTION_SOUTH: south_room_id
-        }

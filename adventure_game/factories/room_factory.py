@@ -15,16 +15,13 @@ class RoomFactory(IRoomFactory):
             constants.DIRECTION_SOUTH: south_room_id
         }
 
-    def create_room(self, room_id, name, description, exits=None, items=[], puzzles=[]):
+    def create_room(self, room_id, name, description, exits=None, items=None, puzzles=None):
         if not exits:
             exits = self.create_room_exits()
 
         return Room(room_id,
                     name,
                     description,
-                    items,
-                    exits[constants.DIRECTION_EAST],
-                    exits[constants.DIRECTION_WEST],
-                    exits[constants.DIRECTION_NORTH],
-                    exits[constants.DIRECTION_SOUTH],
-                    puzzles)
+                    items=items,
+                    exits=exits,
+                    puzzles=puzzles)

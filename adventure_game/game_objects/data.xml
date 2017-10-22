@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <items>
+        <item id="quid">
+            <name>a pound</name>
+            <description>You can buy stuff with it</description>
+        </item>
+        <item id="book">
+            <name>a book</name>
+            <description>You can read it</description>
+        </item>
+        <item id="food">
+            <name>some food</name>
+            <description>You can eat it</description>
+        </item>
+        <item id="drink">
+            <name>a drink</name>
+            <description>Just drink it</description>
+        </item>
+        <item id="flashlight">
+            <name>a flashlight</name>
+            <description>It makes things brighter</description>
+        </item>
+        <item id="laptop">
+            <name>a laptop</name>
+            <description>Goes beep boop</description>
+        </item>
+        <item id="phone">
+            <name>a phone</name>
+            <description>can do</description>
+        </item>
+    </items>
+    <puzzles>
+        <puzzle id="quest">
+            <name>A quest</name>
+            <description>How old are you if you are 3yo?</description>
+            <possible_answers>
+                <answer>10</answer>
+                <answer>1</answer>
+                <answer>5</answer>
+            </possible_answers>
+            <correct_answer>3</correct_answer>
+            <reward_item_id>quid</reward_item_id>
+        </puzzle>
+        <puzzle id="challenge">
+            <name>A real challenge</name>
+            <description>The meaning of life?</description>
+            <possible_answers>
+                <answer>You have to guess this one</answer>
+            </possible_answers>
+            <correct_answer>42</correct_answer>
+        </puzzle>
+        <puzzle id="bubbles">
+            <name>Bubbles</name>
+            <description>13</description>
+            <possible_answers>
+                <answer>You have to guess</answer>
+            </possible_answers>
+            <correct_answer>37</correct_answer>
+            <reward_item_id>phone</reward_item_id>
+        </puzzle>
+    </puzzles>
+    <rooms>
+        <room id="library">
+            <name>Cardiff library</name>
+            <description>You can find books here</description>
+            <items>
+                <item>book</item>
+            </items>
+            <puzzles>
+            </puzzles>
+            <exits>
+                <east>restaurant</east>
+                <west>lab</west>
+                <north>workshop</north>
+                <south>office</south>
+            </exits>
+        </room>
+        <room id="restaurant">
+            <name>The Restaurant</name>
+            <description>Drink and eat</description>
+            <items>
+                <item>food</item>
+                <item>drink</item>
+            </items>
+            <puzzles>
+                <puzzle>bubbles</puzzle>
+            </puzzles>
+            <exits>
+                <west>library</west>
+            </exits>
+        </room>
+        <room id="lab">
+            <name>PC Lab</name>
+            <description>A room full of computers</description>
+            <items>
+                <item>flashlight</item>
+            </items>
+            <puzzles>
+                <puzzle>quest</puzzle>
+                <puzzle>challenge</puzzle>
+            </puzzles>
+            <exits>
+                <east>library</east>
+            </exits>
+        </room>
+        <room id="office">
+            <name>The main office</name>
+            <description>You are trapped. There are no exits</description>
+            <items></items>
+            <puzzles></puzzles>
+            <exits></exits>
+        </room>
+        <room id="workshop">
+            <name>The Workshop</name>
+            <description>vrum vrum</description>
+            <items></items>
+            <puzzles></puzzles>
+            <exits>
+                <south>library</south>
+            </exits>
+        </room>
+    </rooms>
+    <player>
+        <name>John Doe</name>
+        <location>library</location>
+        <inventory>
+            <item>laptop</item>
+        </inventory>
+    </player>
+</data>

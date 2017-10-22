@@ -9,5 +9,5 @@ class IRoomFactory(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def create_room(self, room_id, name, description, exits=None, items=[]) -> IRoom:
+    def create_room(self, room_id, name, description, exits=None, items=None, puzzles=None) -> IRoom:
         pass

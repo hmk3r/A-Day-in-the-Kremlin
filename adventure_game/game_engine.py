@@ -10,10 +10,11 @@ class GameEngine(IEngine):
     puzzles = {}
     player = None
 
-    def __init__(self, writer: IWriter, reader: IReader, parser: IParser):
+    def __init__(self, writer: IWriter, reader: IReader, parser: IParser, object_loader: IObjectsLoader):
         self.writer = writer
         self.reader = reader
         self.parser = parser
+        self.object_loader = object_loader
         self.setup()
 
     def run(self):
@@ -35,6 +36,7 @@ class GameEngine(IEngine):
         if direction not in self.player.location.exits:
             self.writer.write_separator()
             self.writer.write("Invalid direction")
+            return
 
         next_room = self.get_next_room(self.player.location.exits[direction])
 
@@ -163,10 +165,10 @@ class GameEngine(IEngine):
                 self.writer.write("Type SOLVE {0} to solve {1}.".format(puzzle.id.upper(), puzzle.name))
 
         for item in self.player.location.items:
-            self.writer.write("Type TAKE {0} to take {1}".format(item.id, item.name))
+            self.writer.write("Type TAKE {0} to take {1}".format(item.id.upper(), item.name))
 
         for i in self.player.inventory:
-            self.writer.write("Type DROP {0} to drop {1}".format(i.id, i.name))
+            self.writer.write("Type DROP {0} to drop {1}".format(i.id.upper(), i.name))
 
         for direction in self.player.location.exits:
             if not self.player.location.exits[direction]:
@@ -177,78 +179,4 @@ class GameEngine(IEngine):
             self.writer.write("Type GO {0} to go to {1}".format(direction.upper(), room_exit.name))
 
     def setup(self):
-        """ A temporary solution until I find out how to load all the data from an external file.
-        Just ignore this for now.
-        """
-        item_factory = ItemFactory()
-        player_factory = PlayerFactory()
-        room_factory = RoomFactory()
-
-        for x in range(0, 6):
-            new_item = item_factory.create_item(str(x), "Item {0}".format(x), "Cool item number {0}".format(x))
-            self.items[str(x)] = new_item
-
-        library_exits_scheme = \
-            room_factory.create_room_exits(
-                east_room_id="restaurant",
-                west_room_id="lab",
-                north_room_id="workshop",
-                south_room_id="office")
-
-        library = \
-            room_factory.create_room(
-                "library",
-                "Cardiff library",
-                "You can find books here",
-                library_exits_scheme,
-                [self.items["0"], self.items["2"]])
-        self.rooms[library.id] = library
-
-        restaurant_puzzle = Puzzle("puzzle", "a mystery", "You're 3yo. How old are you?", ["0", "10", "15"], "3")
-        self.puzzles[restaurant_puzzle.id] = restaurant_puzzle
-
-        restaurant_exits_scheme = room_factory.create_room_exits(west_room_id="library")
-        restaurant = room_factory.create_room("restaurant",
-                                              "The Restaurant",
-                                              "Drink and eat",
-                                              restaurant_exits_scheme)
-        restaurant.puzzles.append(restaurant_puzzle)
-
-        self.rooms[restaurant.id] = restaurant
-
-        lab_puzzle = Puzzle("quest",
-                            "the hard quest",
-                            "This quest is pointless. But so is a circle. What's the answer?",
-                            ["You have to guess"],
-                            "42",
-                            self.items["5"])
-        self.puzzles[lab_puzzle.id] = lab_puzzle
-
-        second_lab_puzzle = Puzzle("harderquest",
-                                   "the harder quest",
-                                   "13",
-                                   ["You have to guess"],
-                                   "37")
-        self.puzzles[second_lab_puzzle.id] = second_lab_puzzle
-
-        lab_exits_scheme = room_factory.create_room_exits(east_room_id="library")
-        lab = room_factory.create_room("lab",
-                                       "PC Lab",
-                                       "A room full of computers",
-                                       lab_exits_scheme)
-        lab.items.append(self.items["1"])
-        lab.puzzles.append(lab_puzzle)
-        lab.puzzles.append(second_lab_puzzle)
-        self.rooms[lab.id] = lab
-
-        workshop_exits_scheme = room_factory.create_room_exits(south_room_id="library")
-        workshop = \
-            room_factory.create_room("workshop", "The Workshop", "vrum vrum", workshop_exits_scheme)
-        self.rooms[workshop.id] = workshop
-
-        office = \
-            room_factory.create_room("office", "The main office", "You are trapped. There are no exits",
-                                     items=[self.items["4"]])
-        self.rooms[office.id] = office
-
-        self.player = player_factory.create_player("John Doe", library)
+        [self.items, self.puzzles, self.rooms, self.player] = self.object_loader.load()
