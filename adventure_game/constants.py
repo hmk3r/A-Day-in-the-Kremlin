@@ -1,8 +1,3 @@
-DIRECTION_EAST = "east"
-DIRECTION_WEST = "west"
-DIRECTION_NORTH = "north"
-DIRECTION_SOUTH = "south"
-
 COMMAND_GO = "go"
 COMMAND_TAKE = "take"
 COMMAND_DROP = "drop"

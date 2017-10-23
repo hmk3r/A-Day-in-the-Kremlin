@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<items>
+    <item id="quid">
+        <name>a pound</name>
+        <description>You can buy stuff with it</description>
+    </item>
+    <item id="book">
+        <name>a book</name>
+        <description>You can read it</description>
+    </item>
+    <item id="food">
+        <name>some food</name>
+        <description>You can eat it</description>
+    </item>
+    <item id="drink">
+        <name>a drink</name>
+        <description>Just drink it</description>
+    </item>
+    <item id="flashlight">
+        <name>a flashlight</name>
+        <description>It makes things brighter</description>
+    </item>
+    <item id="laptop">
+        <name>a laptop</name>
+        <description>Goes beep boop</description>
+    </item>
+    <item id="phone">
+        <name>a phone</name>
+        <description>can do</description>
+    </item>
+</items>

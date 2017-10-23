@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<puzzles>
+    <puzzle id="quest">
+        <name>A quest</name>
+        <description>How old are you if you are 3yo?</description>
+        <possible_answers>
+            <answer>10</answer>
+            <answer>1</answer>
+            <answer>5</answer>
+        </possible_answers>
+        <correct_answer>3</correct_answer>
+        <reward_item_id>quid</reward_item_id>
+    </puzzle>
+    <puzzle id="challenge">
+        <name>A real challenge</name>
+        <description>The meaning of life?</description>
+        <possible_answers>
+            <answer>You have to guess this one</answer>
+        </possible_answers>
+        <correct_answer>42</correct_answer>
+    </puzzle>
+    <puzzle id="bubbles">
+        <name>Bubbles</name>
+        <description>13</description>
+        <possible_answers>
+            <answer>You have to guess</answer>
+        </possible_answers>
+        <correct_answer>37</correct_answer>
+        <reward_item_id>phone</reward_item_id>
+    </puzzle>
+</puzzles>

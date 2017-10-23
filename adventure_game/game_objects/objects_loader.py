@@ -2,7 +2,7 @@ from adventure_game.contracts import IObjectsLoader
 from adventure_game.factories.contracts import *
 from adventure_game.models import Room, Puzzle
 from bs4 import BeautifulSoup
-import os
+from lxml import etree
 
 
 class ObjectsLoader(IObjectsLoader):
@@ -10,7 +10,8 @@ class ObjectsLoader(IObjectsLoader):
                  item_factory: IItemFactory,
                  puzzle_factory: IPuzzleFactory,
                  room_factory: IRoomFactory,
-                 player_factory: IPlayerFactory):
+                 player_factory: IPlayerFactory,
+                 xml_data_file_name):
         self.raw_items = {}
         self.raw_puzzles = {}
         self.raw_rooms = {}
@@ -23,9 +24,10 @@ class ObjectsLoader(IObjectsLoader):
         self.puzzles_as_objects = {}
         self.rooms_as_objects = {}
         self.player_as_object = None
+        self.xml_data_file_name = xml_data_file_name
 
     def load(self):
-        self._parse_xml(os.path.abspath("adventure_game/game_objects/data.xml"))
+        self._parse_xml(self.xml_data_file_name)
         self.load_custom_objects()
         self.convert_objects()
 
@@ -133,8 +135,9 @@ class ObjectsLoader(IObjectsLoader):
                                                                   inventory=player_inventory)
 
     def _parse_xml(self, file_name):
-        with open(file_name) as file:
-            xml = BeautifulSoup(file, "html.parser")
+        raw_xml = etree.parse(file_name)
+        raw_xml.xinclude()
+        xml = BeautifulSoup(etree.tostring(raw_xml), "xml")
 
         items = xml.data.items.find_all("item")
         for item in items:

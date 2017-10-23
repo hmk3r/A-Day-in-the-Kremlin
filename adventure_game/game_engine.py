@@ -114,7 +114,7 @@ class GameEngine(IEngine):
             self.writer.write_separator()
             self.writer.write("Correct answer!")
             if puzzle.reward:
-                self.writer.write("Here's your {0}".format(puzzle.reward.name))
+                self.writer.write("Here's {0}".format(puzzle.reward.name))
                 self.player.inventory.append(puzzle.reward)
         else:
             self.writer.write("Wrong answer!")

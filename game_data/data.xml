@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+    <xi:include href="items.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="puzzles.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <xi:include href="rooms.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <player>
+        <name>John Doe</name>
+        <location>library</location>
+        <inventory>
+            <item>laptop</item>
+        </inventory>
+    </player>
+</data>
