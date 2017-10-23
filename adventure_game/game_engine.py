@@ -109,7 +109,7 @@ class GameEngine(IEngine):
             self.writer.write(possible_answer)
 
         answer_raw = self.reader.read_input("Answer: ")
-        answer = self.parser.parse_command(answer_raw)
+        answer = self.parser.normalise_string(answer_raw)
         if puzzle.answer_is_correct(answer):
             self.writer.write_separator()
             self.writer.write("Correct answer!")

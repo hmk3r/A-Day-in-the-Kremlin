@@ -15,13 +15,18 @@ class CommandParserProvider(IParser):
                   'wish', 'with', 'would']
 
     def parse_command(self, command_as_text):
-        no_punctuation = self.remove_punctuation(command_as_text).lower()
-        no_spaces = self.remove_spaces(no_punctuation)
-        words = no_spaces.split(" ")
+        normalised_string = self.normalise_string(command_as_text)
+        words = normalised_string.split(" ")
         no_empty_strings = filter(None, words)
         command = self.filter_words(no_empty_strings, self.SKIP_WORDS)
 
         return command
+
+    def normalise_string(self, input_string):
+        no_punctuation = self.remove_punctuation(input_string).lower()
+        no_spaces = self.remove_spaces(no_punctuation)
+
+        return no_spaces
 
     def filter_words(self, words, skip_words):
 
