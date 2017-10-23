@@ -84,6 +84,7 @@
         <exits>
             <up>stairs2</up>
             <west>grand_hall</west>
+            <down>stairs3</down>
         </exits>
     </room>
     <room id="grand_hall">
@@ -139,5 +140,46 @@
             <north>gardens_west</north>
         </exits>
     </room>
-
+    <room id="stairs3">
+        <name>Basement stairs</name>
+        <description>You go down the stairs to the basement level of the Kremlin, the air is dark and musky, are you sure you want to be here.</description>
+        <items>
+        </items>
+        <puzzles></puzzles>
+        <exits>
+            <up>stairs1</up>
+            <forward>underground_junction</forward>
+        </exits>
+    </room>
+    <room id="underground_junction">
+        <name>An undergound junction</name>
+        <description>The path splits in three directions, i would take care with which way you go.</description>
+        <items>
+        </items>
+        <puzzles></puzzles>
+        <exits>
+            <left>bad_room</left>
+            <forward>bad_room</forward>
+            <right>torture_room</right>
+        </exits>
+    </room>
+    <room id="bad_room">
+        <name>Unkown room</name>
+        <description>This was diffinetly the wrong way. *click* the door locks behind you.</description>
+        <items>
+        </items>
+        <puzzles></puzzles>
+        <exits>
+        </exits>
+    </room>
+    <room id="torture_room">
+        <name>Unkown room</name>
+        <description>You have made it to the torture room.</description>
+        <items>
+        </items>
+        <puzzles></puzzles>
+        <exits>
+            <back>underground_junction</back>
+        </exits>
+    </room>
 </rooms>
