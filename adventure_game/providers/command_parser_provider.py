@@ -42,7 +42,7 @@ class CommandParserProvider(IParser):
     def remove_punctuation(self, text):
         no_punctuation = ""
         for char in text:
-            if not (char in string.punctuation):
+            if (not (char in string.punctuation)) or char == "_":
                 no_punctuation = no_punctuation + char
         return no_punctuation
 
