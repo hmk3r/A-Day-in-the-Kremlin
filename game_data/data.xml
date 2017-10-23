@@ -5,7 +5,7 @@
     <xi:include href="rooms.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <player>
         <name>John Doe</name>
-        <location>library</location>
+        <location>reception</location>
         <inventory>
             <item>laptop</item>
         </inventory>

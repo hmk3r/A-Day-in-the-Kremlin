@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rooms>
-    <room id="library">
-        <name>Cardiff library</name>
-        <description>You can find books here</description>
+    <room id="reception">
+        <name>Stalins Reception</name>
+        <description>This is the Stalin's reception</description>
         <items>
             <item>book</item>
         </items>
         <puzzles>
         </puzzles>
         <exits>
-            <east>restaurant</east>
-            <west>lab</west>
-            <north>workshop</north>
-            <south>office</south>
+            <east>stairs2</east>
+            <west>bedroom</west>
         </exits>
     </room>
-    <room id="restaurant">
-        <name>The Restaurant</name>
-        <description>Drink and eat</description>
+    <room id="bedroom">
+        <name>Stalins master bedroom</name>
+        <description>It said that once you go in, you never come out</description>
         <items>
             <item>food</item>
             <item>drink</item>
@@ -26,12 +24,13 @@
             <puzzle>bubbles</puzzle>
         </puzzles>
         <exits>
-            <west>library</west>
+             <east>reception</east>
+             <south>bathroom</south>
         </exits>
     </room>
-    <room id="lab">
-        <name>PC Lab</name>
-        <description>A room full of computers</description>
+    <room id="bathroom">
+        <name>Stalin's personal bathroom</name>
+        <description>A room dominated by a huge bathtub the size of a small swimming pool</description>
         <items>
             <item>flashlight</item>
         </items>
@@ -40,23 +39,96 @@
             <puzzle>challenge</puzzle>
         </puzzles>
         <exits>
-            <east>library</east>
+            <east>cleaning_cupboard</east>
+            <south>toilet</south>
+            <north>bedroom</north>
         </exits>
     </room>
-    <room id="office">
-        <name>The main office</name>
-        <description>You are trapped. There are no exits</description>
-        <items></items>
-        <puzzles></puzzles>
-        <exits></exits>
-    </room>
-    <room id="workshop">
-        <name>The Workshop</name>
-        <description>vrum vrum</description>
+    <room id="toilet">
+        <name>The Golden Throne</name>
+        <description>Sometimes called the 8th wonder of the world, stalins throne room or toilet is as majestic as it is smelly. The toilet seat alone is worth more than your house.</description>
         <items></items>
         <puzzles></puzzles>
         <exits>
-            <south>library</south>
+            <north>bathroom</north>
         </exits>
     </room>
+    <room id="cleaning_cupboard">
+        <name>Cleaning Cupboard</name>
+        <description>A small room full of various from of cleaning products and a large picture of Lenin's right leg.</description>
+        <items></items>
+        <puzzles></puzzles>
+        <exits>
+            <west>bathroom</west>
+        </exits>
+    </room>
+    <room id="stairs2">
+        <name>1st story stair case</name>
+        <description>A small landing with stairs leading leading down to the ground floor</description>
+        <items></items>
+        <puzzles></puzzles>
+        <exits>
+            <down>stairs1</down>
+        </exits>
+    </room>
+    <room id="stairs1">
+        <name>Ground floor stair case</name>
+        <description>A small landing with stairs leading leading up to the 1st floor</description>
+        <items></items>
+        <puzzles></puzzles>
+        <exits>
+            <up>stairs2</up>
+            <west>grand_hall</west>
+        </exits>
+    </room>
+    <room id="grand_hall">
+        <name>The Grand Hall</name>
+        <description>A cavenous room with high vaulted ceiling, the walls are filled with potraits of great russian leaders, though you only seem to see photos of stalin.</description>
+        <items></items>
+        <puzzles></puzzles>
+        <exits>
+            <east>stairs1</east>
+            <west>gardens_east</west>
+            <north>kitchen</north>
+        </exits>
+    </room>
+    <room id="kitchen">
+        <name>The Kremlin kithcens</name>
+        <description>This seithing mass of people is the kitchen, people are running back and forth with huge looming cheifs barking orders. You eye suspiciously the red stains on the floor, it would be wise to watch your step.</description>
+        <items></items>
+        <puzzles></puzzles>
+        <exits>
+            <south>grand_hall</south>
+        </exits>
+    </room>
+    <room id="gardens_east">
+        <name>The Eastern Gardens</name>
+        <description>These bountiful gardens spread lushly around you, paths lined with neat trimmed hedges and staurs spread away from you. It would be wise to keep to the path, you would be surprised how many people went for a walk in the gardens and never came back.</description>
+        <items></items>
+        <puzzles></puzzles>
+        <exits>
+            <east>grand_hall</east>
+            <west>gardens_west</west>
+        </exits>
+    </room>
+    <room id="gardens_west">
+        <name>The Western Gardens</name>
+        <description>The Western Gardens are very similair to the Eatern Gardens but if you look closer at the statues and hedges you will notice the much a darker appeal of these gardens, it would not be wise to dwell on if that statue looks like your cousin.</description>
+        <items></items>
+        <puzzles></puzzles>
+        <exits>
+            <east>gardens_west</east>
+            <south>tesco</south>
+        </exits>
+    </room>
+    <room id="tesco">
+        <name>Tesco</name>
+        <description>You stumble across something that looks vaguely familiar, a bright flourecent sign comfirms your doubts. This is indeed a supermarket hidden in the gardens of the kremlin. You go inside. </description>
+        <items></items>
+        <puzzles></puzzles>
+        <exits>
+            <north>gardens_west</north>
+        </exits>
+    </room>
+
 </rooms>
