@@ -4,7 +4,8 @@
         <name>Stalins Reception</name>
         <description>This is the Stalin's reception</description>
         <items>
-            <item>book</item>
+            <item>list</item>
+            <item>collar</item>
         </items>
         <puzzles>
         </puzzles>
@@ -17,8 +18,7 @@
         <name>Stalins master bedroom</name>
         <description>It said that once you go in, you never come out</description>
         <items>
-            <item>food</item>
-            <item>drink</item>
+            <item>lead</item>
         </items>
         <puzzles>
             <puzzle>bubbles</puzzle>
@@ -32,7 +32,8 @@
         <name>Stalin's personal bathroom</name>
         <description>A room dominated by a huge bathtub the size of a small swimming pool</description>
         <items>
-            <item>flashlight</item>
+            <item>bubblebath_lemon</item>
+            <item>bubblebath_power</item>
         </items>
         <puzzles>
             <puzzle>quest</puzzle>
@@ -47,7 +48,9 @@
     <room id="toilet">
         <name>The Golden Throne</name>
         <description>Sometimes called the 8th wonder of the world, stalins throne room or toilet is as majestic as it is smelly. The toilet seat alone is worth more than your house.</description>
-        <items></items>
+        <items>
+            <item>toilet_brush</item>
+        </items>
         <puzzles></puzzles>
         <exits>
             <north>bathroom</north>
@@ -56,7 +59,9 @@
     <room id="cleaning_cupboard">
         <name>Cleaning Cupboard</name>
         <description>A small room full of various from of cleaning products and a large picture of Lenin's right leg.</description>
-        <items></items>
+        <items>
+            <item>toilet_cleaner</item>
+        </items>
         <puzzles></puzzles>
         <exits>
             <west>bathroom</west>
@@ -95,7 +100,9 @@
     <room id="kitchen">
         <name>The Kremlin kithcens</name>
         <description>This seithing mass of people is the kitchen, people are running back and forth with huge looming cheifs barking orders. You eye suspiciously the red stains on the floor, it would be wise to watch your step.</description>
-        <items></items>
+        <items>
+            <item>kitchen_lunch</item>
+        </items>
         <puzzles></puzzles>
         <exits>
             <south>grand_hall</south>
@@ -124,7 +131,9 @@
     <room id="tesco">
         <name>Tesco</name>
         <description>You stumble across something that looks vaguely familiar, a bright flourecent sign comfirms your doubts. This is indeed a supermarket hidden in the gardens of the kremlin. You go inside. </description>
-        <items></items>
+        <items>
+            <item>Tesco_lunch</item>
+        </items>
         <puzzles></puzzles>
         <exits>
             <north>gardens_west</north>

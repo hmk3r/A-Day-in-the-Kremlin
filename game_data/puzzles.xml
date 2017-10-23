@@ -9,7 +9,7 @@
             <answer>5</answer>
         </possible_answers>
         <correct_answer>3</correct_answer>
-        <reward_item_id>quid</reward_item_id>
+        <reward_item_id>rubber_duck</reward_item_id>
     </puzzle>
     <puzzle id="challenge">
         <name>A real challenge</name>
@@ -26,6 +26,6 @@
             <answer>You have to guess</answer>
         </possible_answers>
         <correct_answer>37</correct_answer>
-        <reward_item_id>phone</reward_item_id>
+        <reward_item_id>rubber_duck</reward_item_id>
     </puzzle>
 </puzzles>

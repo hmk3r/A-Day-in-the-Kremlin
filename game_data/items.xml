@@ -1,31 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <items>
-    <item id="quid">
-        <name>a pound</name>
-        <description>You can buy stuff with it</description>
+    <item id="toilet_cleaner">
+        <name>Toilet cleaning product</name>
+        <description>You clean toilets with it.</description>
     </item>
-    <item id="book">
-        <name>a book</name>
-        <description>You can read it</description>
+    <item id="toilet_brush">
+        <name>A manky toilet brush</name>
+        <description>You can clean toilets, teeth and backs with one of these</description>
     </item>
-    <item id="food">
-        <name>some food</name>
-        <description>You can eat it</description>
+    <item id="bubblebath_lemon">
+        <name>Lemon scented bubblebath</name>
+        <description>You put it in a bath</description>
     </item>
-    <item id="drink">
-        <name>a drink</name>
-        <description>Just drink it</description>
+    <item id="bubblebath_power">
+        <name>A power scented bubblebath</name>
+        <description>You put it in a bath of powerful people</description>
     </item>
-    <item id="flashlight">
-        <name>a flashlight</name>
-        <description>It makes things brighter</description>
+    <item id="rubber_duck">
+        <name>A pink rubber duck</name>
+        <description>Essential for every bath</description>
     </item>
-    <item id="laptop">
-        <name>a laptop</name>
-        <description>Goes beep boop</description>
+    <item id="kitchen_lunch">
+        <name>A Kithcen prepared lunch</name>
+        <description>Prepared by the kremlins finest cooks this meals consists of a jacket potato, cheese and a bottle of vodka.</description>
     </item>
-    <item id="phone">
-        <name>a phone</name>
-        <description>can do</description>
+    <item id="Tesco_lunch">
+        <name>Tescos finest meal deal.</name>
+        <description>If there is one thing supermarkets got right it is the meal deal.</description>
+    </item>
+    <item id="collar">
+        <name>Spiked collar</name>
+        <description>This huge studded collar looks better suited to a rhino than a pet.</description>
+    </item>
+    <item id="lead">
+        <name>Chain lead</name>
+        <description>This chain lead looks more in line to haul a ship than a pet.</description>
+    </item>
+    <item id="list">
+        <name>Todays Job list</name>
+        <description>1. clean toilet 2. fetch lunch 3. fetch Sona 4. run bath 5. dispose of Capitlists</description>
+    </item>
+    <item id="happiness">
+        <name>Your Happiness</name>
+        <description>Its your first day, your eyes still shine with hope and contentment, this will soon fade.</description>
     </item>
 </items>
