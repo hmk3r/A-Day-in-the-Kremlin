@@ -24,6 +24,9 @@ class GameEngine(IEngine):
                 user_input = self.reader.read_input("What would you ike to do? >")
                 command = self.parser.parse_command(user_input)
                 self.execute_command(command)
+                if self.check_win():
+                    # Display end game screen
+                    raise PlayerDeadException("You won!")
         except PlayerDeadException as player_dead_exception:
             self.writer.write_separator()
             self.writer.write(str(player_dead_exception))
@@ -39,6 +42,14 @@ class GameEngine(IEngine):
             return None
 
         return self.rooms[room_id]
+
+    def check_win(self):
+        is_completed = True
+        for room_id in self.rooms:
+            if not self.rooms[room_id].check_if_completed():
+                return False
+            is_completed = is_completed and self.rooms[room_id].check_if_completed()
+        return is_completed
 
     def execute_go(self, direction):
 

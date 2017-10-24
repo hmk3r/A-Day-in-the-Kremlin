@@ -1,1 +1,1 @@
-from .lab import Lab
+from .bathroom import Bathroom

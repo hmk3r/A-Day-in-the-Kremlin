@@ -45,6 +45,5 @@ class Room(IRoom):
     def id(self):
         return self._id
 
-    @property
-    def is_completed(self):
+    def check_if_completed(self):
         return True

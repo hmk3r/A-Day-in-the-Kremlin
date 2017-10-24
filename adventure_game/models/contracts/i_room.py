@@ -37,7 +37,6 @@ class IRoom(metaclass=ABCMeta):
     def puzzles(self):
         pass
 
-    @property
     @abstractmethod
-    def is_completed(self):
+    def check_if_completed(self):
         pass
