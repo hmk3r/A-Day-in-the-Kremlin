@@ -166,7 +166,7 @@ s        <name>The Grand Hall</name>
     </room>
     <room id="bad_room">
         <name>Unkown room</name>
-        <description>This was diffinetly the wrong way. *click* the door locks behind you.</description>
+        <description>This was definitely the wrong way. *click* the door locks behind you.</description>
         <items>
         </items>
         <puzzles></puzzles>

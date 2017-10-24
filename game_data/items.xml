@@ -21,11 +21,11 @@
         <description>Essential for every bath</description>
     </item>
     <item id="kitchen_lunch">
-        <name>A Kithcen prepared lunch</name>
-        <description>Prepared by the kremlins finest cooks this meals consists of a jacket potato, cheese and a bottle of vodka.</description>
+        <name>A Kitchen prepared lunch</name>
+        <description>Prepared by the Kremlin's finest cooks this meal consists of a jacket potato, cheese and a bottle of vodka.</description>
     </item>
     <item id="tesco_lunch">
-        <name>Tescos finest meal deal.</name>
+        <name>Tesco's finest meal deal.</name>
         <description>If there is one thing supermarkets got right it is the meal deal.</description>
     </item>
     <item id="collar">
@@ -37,11 +37,11 @@
         <description>This chain lead looks more in line to haul a ship than a pet.</description>
     </item>
     <item id="list">
-        <name>Todays Job list</name>
+        <name>Today's Job list</name>
         <description>1. clean toilet 2. fetch lunch 3. fetch Sona 4. run bath 5. dispose of Capitlists</description>
     </item>
     <item id="happiness">
         <name>Your Happiness</name>
-        <description>Its your first day, your eyes still shine with hope and contentment, this will soon fade.</description>
+        <description>It's your first day, your eyes still shine with hope and contentment, this will soon fade.</description>
     </item>
 </items>
