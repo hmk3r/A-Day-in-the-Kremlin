@@ -2,7 +2,7 @@
 <rooms>
     <room id="reception">
         <name>Stalins Reception</name>
-        <description>This is the Stalin's reception</description>
+        <description>This is the Stalin's reception.</description>
         <items>
             <item>list</item>
             <item>collar</item>
@@ -16,7 +16,7 @@
     </room>
     <room id="bedroom">
         <name>Stalins master bedroom</name>
-        <description>It said that once you go in, you never come out</description>
+        <description>It said that once you go in, you never come out.</description>
         <items>
             <item>lead</item>
         </items>
@@ -30,7 +30,7 @@
     </room>
     <room id="bathroom">
         <name>Stalin's personal bathroom</name>
-        <description>A room dominated by a huge bathtub the size of a small swimming pool</description>
+        <description>A room dominated by a huge bathtub the size of a small swimming pool.</description>
         <items>
             <item>bubblebath_lemon</item>
             <item>bubblebath_power</item>
@@ -47,7 +47,7 @@
     </room>
     <room id="toilet">
         <name>The Golden Throne</name>
-        <description>Sometimes called the 8th wonder of the world, stalins throne room or toilet is as majestic as it is smelly. The toilet seat alone is worth more than your house.</description>
+        <description>Sometimes called the 8th wonder of the world, Stalin's throne room or toilet is as majestic as it is smelly. The toilet seat alone is worth more than your house.</description>
         <items>
             <item>toilet_brush</item>
         </items>
@@ -69,7 +69,7 @@
     </room>
     <room id="stairs2">
         <name>1st story stair case</name>
-        <description>A small landing with stairs leading leading down to the ground floor</description>
+        <description>A small landing with stairs leading leading down to the ground floor.</description>
         <items></items>
         <puzzles></puzzles>
         <exits>
@@ -79,7 +79,7 @@
     </room>
     <room id="stairs1">
         <name>Ground floor stair case</name>
-        <description>A small landing with stairs leading leading up to the 1st floor</description>
+        <description>A small landing with stairs leading leading up to the 1st floor.</description>
         <items></items>
         <puzzles></puzzles>
         <exits>
@@ -90,7 +90,7 @@
     </room>
     <room id="grand_hall">
 s        <name>The Grand Hall</name>
-        <description>A cavenous room with high vaulted ceiling, the walls are filled with potraits of great russian leaders, though you only seem to see photos of stalin.</description>
+        <description>A cavenous room with high vaulted ceiling, the walls are filled with potraits of great Russian leaders, though you only seem to see photos of Stalin.</description>
         <items></items>
         <puzzles></puzzles>
         <exits>
@@ -143,7 +143,7 @@ s        <name>The Grand Hall</name>
     </room>
     <room id="stairs3">
         <name>Basement stairs</name>
-        <description>You go down the stairs to the basement level of the Kremlin, the air is dark and musky, are you sure you want to be here.</description>
+        <description>You go down the stairs to the basement level of the Kremlin, the air is dark and musky, are you sure you want to be here?</description>
         <items>
         </items>
         <puzzles></puzzles>
@@ -154,7 +154,7 @@ s        <name>The Grand Hall</name>
     </room>
     <room id="underground_junction">
         <name>An undergound junction</name>
-        <description>The path splits in three directions, i would take care with which way you go.</description>
+        <description>The path splits in three directions, I would take care with which way you go.</description>
         <items>
         </items>
         <puzzles></puzzles>

@@ -6,19 +6,19 @@
     </item>
     <item id="toilet_brush">
         <name>A manky toilet brush</name>
-        <description>You can clean toilets, teeth and backs with one of these</description>
+        <description>You can clean toilets, teeth, and backs with one of these.</description>
     </item>
     <item id="bubblebath_lemon">
         <name>Lemon scented bubblebath</name>
-        <description>You put it in a bath</description>
+        <description>You put it in a bath.</description>
     </item>
     <item id="bubblebath_power">
         <name>A power scented bubblebath</name>
-        <description>You put it in a bath of powerful people</description>
+        <description>You put it in a bath of powerful people.</description>
     </item>
     <item id="rubber_duck">
         <name>A pink rubber duck</name>
-        <description>Essential for every bath</description>
+        <description>Essential for every bath.</description>
     </item>
     <item id="kitchen_lunch">
         <name>A Kitchen prepared lunch</name>
@@ -38,7 +38,7 @@
     </item>
     <item id="list">
         <name>Today's Job list</name>
-        <description>1. clean toilet 2. fetch lunch 3. fetch Sona 4. run bath 5. dispose of Capitlists</description>
+        <description>1. clean toilet 2. fetch lunch 3. fetch Sona 4. run bath 5. dispose of Capitlists.</description>
     </item>
     <item id="happiness">
         <name>Your Happiness</name>
