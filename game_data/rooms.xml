@@ -21,7 +21,6 @@
             <item>lead</item>
         </items>
         <puzzles>
-            <puzzle>bubbles</puzzle>
         </puzzles>
         <exits>
              <east>reception</east>
@@ -32,11 +31,8 @@
         <name>Stalin's personal bathroom</name>
         <description>A room dominated by a huge bathtub the size of a small swimming pool</description>
         <items>
-            <item>bubblebath_lemon</item>
-            <item>bubblebath_power</item>
         </items>
         <puzzles>
-            <puzzle>quest</puzzle>
             <puzzle>challenge</puzzle>
         </puzzles>
         <exits>
@@ -60,7 +56,9 @@
         <name>Cleaning Cupboard</name>
         <description>A small room full of various from of cleaning products and a large picture of Lenin's right leg.</description>
         <items>
-            <item>toilet_cleaner</item>
+            <item>toilet_cleaner</item>      
+            <item>bubblebath_lemon</item>
+            <item>bubblebath_power</item>
         </items>
         <puzzles></puzzles>
         <exits>
@@ -178,7 +176,9 @@
         <description>You have made it to the torture room.</description>
         <items>
         </items>
-        <puzzles></puzzles>
+        <puzzles>
+            <puzzle>quest</puzzle>
+        </puzzles>
         <exits>
             <back>underground_junction</back>
         </exits>

@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <puzzles>
     <puzzle id="quest">
-        <name>A quest</name>
-        <description>How old are you if you are 3yo?</description>
+        <name>A Touch Choice</name>
+        <description>How do you want to kill the prisoners</description>
         <possible_answers>
-            <answer>10</answer>
-            <answer>1</answer>
-            <answer>5</answer>
+            <answer>1) Kill the Father first, then the mother and then the child</answer>
+            <answer>2) Kill the Mother and the father but let the child go</answer>
+            <answer>3) Kill the child and then the mother while letting the father go to send a message to other rebelious citizens.</answer>
         </possible_answers>
         <correct_answer>3</correct_answer>
-        <reward_item_id>rubber_duck</reward_item_id>
     </puzzle>
     <puzzle id="challenge">
         <name>A real challenge</name>
