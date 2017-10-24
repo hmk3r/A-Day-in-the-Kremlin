@@ -133,7 +133,7 @@
         <name>Tesco</name>
         <description>You stumble across something that looks vaguely familiar, a bright flourecent sign comfirms your doubts. This is indeed a supermarket hidden in the gardens of the kremlin. You go inside. </description>
         <items>
-            <item>Tesco_lunch</item>
+            <item>tesco_lunch</item>
         </items>
         <puzzles></puzzles>
         <exits>

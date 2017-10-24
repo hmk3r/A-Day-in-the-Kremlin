@@ -24,7 +24,7 @@
         <name>A Kithcen prepared lunch</name>
         <description>Prepared by the kremlins finest cooks this meals consists of a jacket potato, cheese and a bottle of vodka.</description>
     </item>
-    <item id="Tesco_lunch">
+    <item id="tesco_lunch">
         <name>Tescos finest meal deal.</name>
         <description>If there is one thing supermarkets got right it is the meal deal.</description>
     </item>
