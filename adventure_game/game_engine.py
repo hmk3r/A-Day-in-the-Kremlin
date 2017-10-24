@@ -1,6 +1,5 @@
 from adventure_game.contracts import *
-from adventure_game.models import Puzzle
-from adventure_game.factories import RoomFactory, ItemFactory, PlayerFactory
+from adventure_game.exceptions import PlayerDeadException
 import adventure_game.constants as constants
 
 
@@ -10,20 +9,30 @@ class GameEngine(IEngine):
     puzzles = {}
     player = None
 
-    def __init__(self, writer: IWriter, reader: IReader, parser: IParser, object_loader: IObjectsLoader):
+    def __init__(self, writer: IWriter, reader: IReader, parser: IParser, objects_loader: IObjectsLoader):
         self.writer = writer
         self.reader = reader
         self.parser = parser
-        self.object_loader = object_loader
+        self.objects_loader = objects_loader
         self.setup()
 
     def run(self):
-        while True:
-            self.print_current_game_info()
+        try:
+            while True:
+                self.print_current_game_info()
 
-            user_input = self.reader.read_input("What would you ike to do? >")
-            command = self.parser.parse_command(user_input)
-            self.execute_command(command)
+                user_input = self.reader.read_input("What would you ike to do? >")
+                command = self.parser.parse_command(user_input)
+                self.execute_command(command)
+        except PlayerDeadException as player_dead_exception:
+            self.writer.write_separator()
+            self.writer.write(str(player_dead_exception))
+            self.writer.write_separator()
+        except KeyboardInterrupt:
+            self.writer.write_separator()
+            self.writer.write_separator()
+            self.writer.write("Thanks for playing! You're welcome back anytime!")
+            self.writer.write_separator()
 
     def get_next_room(self, room_id):
         if room_id not in self.rooms:
@@ -115,7 +124,7 @@ class GameEngine(IEngine):
             self.writer.write("Correct answer!")
             if puzzle.reward:
                 self.writer.write("Here's {0}".format(puzzle.reward.name))
-                self.player.inventory.append(puzzle.reward)
+                self.player.take_item(puzzle.reward)
         else:
             self.writer.write("Wrong answer!")
 
@@ -179,4 +188,4 @@ class GameEngine(IEngine):
             self.writer.write("Type GO {0} to go to {1}".format(direction.upper(), room_exit.name))
 
     def setup(self):
-        [self.items, self.puzzles, self.rooms, self.player] = self.object_loader.load()
+        [self.items, self.puzzles, self.rooms, self.player] = self.objects_loader.load()

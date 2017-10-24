@@ -1,4 +1,5 @@
 from adventure_game.models import Puzzle
+from adventure_game.exceptions import PlayerDeadException
 
 
 class HarderLabPuzzle(Puzzle):
@@ -6,5 +7,8 @@ class HarderLabPuzzle(Puzzle):
         super().__init__("challenge")
 
     def answer_is_correct(self, answer):
-        print("This puzzle never gets solved no matter the input")
-        return False
+        if answer != self.correct_answer:
+            raise PlayerDeadException("NO!!! Wrong answer! You're going to GULAG, comrade!")
+        else:
+            self._is_solved = True
+            return True

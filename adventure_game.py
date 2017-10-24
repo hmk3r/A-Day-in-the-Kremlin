@@ -16,8 +16,8 @@ def main():
     room_factory = RoomFactory()
     player_factory = PlayerFactory()
 
-    object_loader = ObjectsLoader(item_factory, puzzle_factory, room_factory, player_factory, xml_data_file_name)
-    game_engine = GameEngine(console_writer, console_reader, command_parser, object_loader)
+    objects_loader = ObjectsLoader(item_factory, puzzle_factory, room_factory, player_factory, xml_data_file_name)
+    game_engine = GameEngine(console_writer, console_reader, command_parser, objects_loader)
 
     game_engine.run()
 
