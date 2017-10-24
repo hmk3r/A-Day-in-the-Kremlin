@@ -73,6 +73,7 @@
         <items></items>
         <puzzles></puzzles>
         <exits>
+            <west>reception</west>
             <down>stairs1</down>
         </exits>
     </room>
