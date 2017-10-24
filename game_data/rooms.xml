@@ -89,7 +89,7 @@
         </exits>
     </room>
     <room id="grand_hall">
-        <name>The Grand Hall</name>
+s        <name>The Grand Hall</name>
         <description>A cavenous room with high vaulted ceiling, the walls are filled with potraits of great russian leaders, though you only seem to see photos of stalin.</description>
         <items></items>
         <puzzles></puzzles>
@@ -122,7 +122,7 @@
     </room>
     <room id="gardens_west">
         <name>The Western Gardens</name>
-        <description>The Western Gardens are very similair to the Eatern Gardens but if you look closer at the statues and hedges you will notice the much a darker appeal of these gardens, it would not be wise to dwell on if that statue looks like your cousin.</description>
+        <description>The Western Gardens are very similair to the Eastern Gardens but if you look closer at the statues and hedges you will notice the much a darker appeal of these gardens, it would not be wise to dwell on if that statue looks like your cousin.</description>
         <items></items>
         <puzzles></puzzles>
         <exits>
