@@ -6,42 +6,42 @@
     </item>
     <item id="toilet_brush">
         <name>A manky toilet brush</name>
-        <description>You can clean toilets, teeth and backs with one of these</description>
+        <description>You can clean toilets, teeth, and backs with one of these.</description>
     </item>
     <item id="bubblebath_lemon">
         <name>Lemon scented bubblebath</name>
-        <description>You put it in a bath</description>
+        <description>You put it in a bath.</description>
     </item>
     <item id="bubblebath_power">
         <name>A power scented bubblebath</name>
-        <description>You put it in a bath of powerful people</description>
+        <description>You put it in a bath of powerful people.</description>
     </item>
     <item id="rubber_duck">
         <name>A pink rubber duck</name>
-        <description>Essential for every bath</description>
+        <description>Essential for every bath.</description>
     </item>
     <item id="kitchen_lunch">
-        <name>A Kithcen prepared lunch</name>
-        <description>Prepared by the kremlins finest cooks this meals consists of a jacket potato, cheese and a bottle of vodka.</description>
+        <name>A Kitchen prepared lunch</name>
+        <description>Prepared by the Kremlin's finest cooks this meal consists of a jacket potato, cheese and a bottle of vodka.</description>
     </item>
     <item id="tesco_lunch">
-        <name>Tescos finest meal deal.</name>
+        <name>Tesco's finest meal deal.</name>
         <description>If there is one thing supermarkets got right it is the meal deal.</description>
     </item>
     <item id="collar">
-        <name>Spiked collar</name>
-        <description>This huge studded collar looks better suited to a rhino than a pet.</description>
+        <name>Kirillina's collar</name>
+        <description>This huge studded collar initially appears to be better suited a rhino, than a pet. As you look closer you notice the small pink flowers engrained into the fabric of the collar, as well as the name, 'Kirillina'.</description>
     </item>
     <item id="lead">
         <name>Chain lead</name>
         <description>This chain lead looks more in line to haul a ship than a pet.</description>
     </item>
     <item id="list">
-        <name>Todays Job list</name>
-        <description>1. clean toilet 2. fetch lunch 3. fetch Sona 4. run bath 5. dispose of Capitlists</description>
+        <name>Today's Job list</name>
+        <description>1. clean toilet 2. fetch lunch 3. fetch Sona 4. run bath 5. dispose of Capitlists.</description>
     </item>
     <item id="happiness">
         <name>Your Happiness</name>
-        <description>Its your first day, your eyes still shine with hope and contentment, this will soon fade.</description>
+        <description>It's your first day, your eyes still shine with hope and contentment, this will soon fade.</description>
     </item>
 </items>
