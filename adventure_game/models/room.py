@@ -46,4 +46,8 @@ class Room(IRoom):
         return self._id
 
     def check_if_completed(self):
+        for puzzle in self.puzzles:
+            if not puzzle.is_solved:
+                return False
+
         return True

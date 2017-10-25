@@ -1,1 +1,1 @@
-from .bathroom import Bathroom
+from .gardens_east import GardensEast
