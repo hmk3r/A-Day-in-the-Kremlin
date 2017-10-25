@@ -18,6 +18,7 @@ class GameEngine(IEngine):
 
     def run(self):
         try:
+            self.writer.clear()
             while True:
                 self.print_current_game_info()
 
@@ -70,18 +71,17 @@ class GameEngine(IEngine):
 
     def execute_look(self, item_id):
         if item_id not in self.items:
-            print("This item does not exist")
+            self.writer.write_separator()
+            self.writer.write("This item does not exist")
             return
         item = self.items[item_id]
 
         if (item in self.player.inventory) or (item in self.player.location.items):
-            print(item.description)
+            self.writer.write_separator()
+            self.writer.write(item.description)
         else:
-            print("You can't inspect this item right now.")
-        
-        
-            
-
+            self.writer.write_separator()
+            self.writer.write("You can't inspect this item right now.")
 
     def execute_take(self, item_id):
         if item_id not in self.items:
