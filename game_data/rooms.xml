@@ -102,7 +102,7 @@ s        <name>The Grand Hall</name>
     </room>
     <room id="kitchen">
         <name>The Kremlin kitchens</name>
-        <description>This seithing mass of people is the kitchen, people are running back and forth with huge looming cheifs barking orders. You eye suspiciously the red stains on the floor, it would be wise to watch your step.</description>
+        <description>This seithing mass of people is the kitchen, people are running back and forth with huge looming chefs barking orders. You eye suspiciously the red stains on the floor, it would be wise to watch your step.</description>
         <items>
             <item>kitchen_lunch</item>
         </items>
