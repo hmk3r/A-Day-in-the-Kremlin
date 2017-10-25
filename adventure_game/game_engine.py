@@ -114,6 +114,12 @@ class GameEngine(IEngine):
             self.writer.write("You've already solved this puzzle")
             return
 
+        if not set(puzzle.required_items).issubset(self.player.inventory):
+            self.writer.write_separator()
+            self.writer.write("You don't have the required items to complete this puzzle!")
+            self.writer.write("Think logically and you'll find out what you need.")
+            return
+
         self.writer.write_separator()
         self.writer.write(puzzle.name.upper())
 
@@ -136,6 +142,9 @@ class GameEngine(IEngine):
             if puzzle.reward:
                 self.writer.write("Here's {0}".format(puzzle.reward.name))
                 self.player.take_item(puzzle.reward)
+            if puzzle.takes_items:
+                for used_item in puzzle.required_items:
+                    self.player.drop_item(used_item)
         else:
             self.writer.write("Wrong answer!")
 

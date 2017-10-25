@@ -10,13 +10,16 @@
         </possible_answers>
         <correct_answer>3</correct_answer>
     </puzzle>
-    <puzzle id="challenge">
+    <puzzle id="challenge" takes_items="">
         <name>A real challenge</name>
         <description>The meaning of life?</description>
         <possible_answers>
             <answer>You have to guess this one</answer>
         </possible_answers>
         <correct_answer>42</correct_answer>
+        <required_items>
+            <item>bubblebath_power</item>
+        </required_items>
     </puzzle>
     <puzzle id="bubbles">
         <name>Bubbles</name>

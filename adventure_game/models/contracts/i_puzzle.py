@@ -19,6 +19,16 @@ class IPuzzle(metaclass=ABCMeta):
 
     @property
     @abstractmethod
+    def required_items(self):
+        pass
+
+    @property
+    @abstractmethod
+    def takes_items(self):
+        pass
+
+    @property
+    @abstractmethod
     def possible_answers(self):
         pass
 
@@ -35,11 +45,6 @@ class IPuzzle(metaclass=ABCMeta):
     @property
     @abstractmethod
     def reward(self):
-        pass
-
-    @reward.setter
-    @abstractmethod
-    def reward(self, value):
         pass
 
     @abstractmethod
