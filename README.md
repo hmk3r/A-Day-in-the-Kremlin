@@ -1,4 +1,4 @@
-# adventure-game-base
+# A Day in the Kremlin
 
 1. Install dependencies
 ```
