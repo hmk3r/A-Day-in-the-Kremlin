@@ -101,7 +101,7 @@ s        <name>The Grand Hall</name>
         </exits>
     </room>
     <room id="kitchen">
-        <name>The Kremlin kithcens</name>
+        <name>The Kremlin kitchens</name>
         <description>This seithing mass of people is the kitchen, people are running back and forth with huge looming cheifs barking orders. You eye suspiciously the red stains on the floor, it would be wise to watch your step.</description>
         <items>
             <item>kitchen_lunch</item>
@@ -171,7 +171,7 @@ Snacks and Drinks lay in front of you. Lets hope Stalin will like it. </descript
         </exits>
     </room>
     <room id="bad_room">
-        <name>Unkown room</name>
+        <name>Unknown room</name>
         <description>This was definitely the wrong way. *click* the door locks behind you.</description>
         <items>
         </items>
@@ -180,7 +180,7 @@ Snacks and Drinks lay in front of you. Lets hope Stalin will like it. </descript
         </exits>
     </room>
     <room id="torture_room">
-        <name>Unkown room</name>
+        <name>Unknown room</name>
         <description>You have made it to the torture room.</description>
         <items>
         </items>
