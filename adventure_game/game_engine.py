@@ -23,6 +23,7 @@ class GameEngine(IEngine):
 
                 user_input = self.reader.read_input("What would you ike to do? >")
                 command = self.parser.parse_command(user_input)
+                self.writer.clear()
                 self.execute_command(command)
                 if self.check_win():
                     # Display end game screen

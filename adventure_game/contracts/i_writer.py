@@ -9,3 +9,7 @@ class IWriter(metaclass=ABCMeta):
     @abstractmethod
     def write_separator(self):
         pass
+
+    @abstractmethod
+    def clear(self):
+        pass
