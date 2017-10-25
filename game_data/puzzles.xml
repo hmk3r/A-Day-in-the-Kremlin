@@ -18,7 +18,7 @@
             <answer>2) The ordinary one</answer>
         </possible_answers>
         <correct_answer>2</correct_answer>
-        <win_message>Good job, comrade! Stalin likes everything that's made in his kingdom and, most importantly, hates lemons. Here's the bubble bath.</win_message>
+t        <win_message>Good job, comrade! Stalin likes everything that's made in his kingdom and, most importantly, hates lemons. Here's the bubble bath.</win_message>
         <reward_item_id>bubble_bath</reward_item_id>
     </puzzle>
     <puzzle id="bathtub_dilemma" takes_items="" is_annoying="">
@@ -66,7 +66,7 @@
         <name>Taming Kirillina</name>
         <description>How do you want to tackle restraining Kirillina? </description>
         <possible_answers>
-            <answer>1) Slow and steady wins the race, you decide to approach the bear carefully and slowly wihout making eye contact.</answer>
+            <answer>1) Slow and steady wins the race, you decide to approach the bear carefully and slowly without making eye contact.</answer>
             <answer>2) You fill yourself with calm and walk steadily towards the bear holding out the collar and lead in each hand.</answer>
             <answer>3) You really have a death wish! You charge the bear and through shear force of will you hope to get the bear to heel.</answer>
         </possible_answers>
