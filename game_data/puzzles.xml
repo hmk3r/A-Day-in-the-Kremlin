@@ -34,7 +34,7 @@ t        <win_message>Good job, comrade! Stalin likes everything that's made in 
         </required_items>
     </puzzle>
     <puzzle id="drink_dilemma" takes_items="">
-        <name>Pour Stalin a drink with the his lunch.</name>
+        <name>pour Stalin a drink with the his lunch.</name>
         <description>You have managed to get the right lunch, but do you know what Stalin likes to accompany his lunch.</description>
         <possible_answers>
             <answer>1) Some refreshing water collected from a spring in a local meadow.</answer>
@@ -48,7 +48,7 @@ t        <win_message>Good job, comrade! Stalin likes everything that's made in 
         </required_items>
     </puzzle>
     <puzzle id="toilet_dilemma" takes_items="" is_annoying="">
-        <name>Clean his Golden Throne</name>
+        <name>clean Stalin's Golden Throne</name>
         <description>How do you want to clean the toilet?</description>
         <possible_answers>
             <answer>1) Slowly and carefully, you approach this task in the same way a painter would approach a blank canvas.</answer>
@@ -63,7 +63,7 @@ t        <win_message>Good job, comrade! Stalin likes everything that's made in 
         </required_items>
     </puzzle>
     <puzzle id="bear_dilemma" takes_items="" is_annoying="">
-        <name>Taming Kirillina</name>
+        <name>tame Kirillina</name>
         <description>How do you want to tackle restraining Kirillina? </description>
         <possible_answers>
             <answer>1) Slow and steady wins the race, you decide to approach the bear carefully and slowly without making eye contact.</answer>
@@ -78,6 +78,4 @@ t        <win_message>Good job, comrade! Stalin likes everything that's made in 
         </required_items>
         <reward_item_id>bear</reward_item_id>
     </puzzle>
-
-
 </puzzles>

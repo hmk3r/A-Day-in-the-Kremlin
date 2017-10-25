@@ -43,7 +43,7 @@
         </exits>
     </room>
     <room id="toilet">
-        <name>The Golden Throne</name>
+        <name>the Golden Throne</name>
         <description>You are in the toilet which has been heavily decorated in Stalin's favourite colour 'Flamingo Pink'. The dim light and horrendous smell already makes you feel like you've walked into a sewer, only it's stuffy and warm. A portrait of his beloved mother hangs above the sink... Christ she looks just like him. A gold plated toilet sits in the far corner which Stalin calls his 'Throne' and no wonder why! The horrible smell is obviously coming from under the seat... your only hope is to plead that Stalin has had a light lunch. You approach without heaving... Doesn't this man know how to flush?!</description>
         <items>
             <item>toilet_brush</item>
@@ -56,7 +56,7 @@
         </exits>
     </room>
     <room id="cleaning_cupboard">
-        <name>Cleaning Cupboard</name>
+        <name>cleaning cupboard</name>
         <description>A small room full of various forms of cleaning products and a large picture of Lenin's right leg.</description>
         <items>
             <item>toilet_cleaner</item>
@@ -79,7 +79,7 @@
         </exits>
     </room>
     <room id="stairs1">
-        <name>Ground floor stair case</name>
+        <name>ground floor stair case</name>
         <description>A small landing with stairs leading up to the 1st floor.</description>
         <items></items>
         <puzzles></puzzles>
@@ -90,7 +90,7 @@
         </exits>
     </room>
     <room id="grand_hall">
-s        <name>The Grand Hall</name>
+s        <name>the Grand Hall</name>
         <description>A cavenous room with high vaulted ceiling, the walls are filled with potraits of great Russian leaders, though you only seem to see photos of Stalin.</description>
         <items></items>
         <puzzles></puzzles>
@@ -101,7 +101,7 @@ s        <name>The Grand Hall</name>
         </exits>
     </room>
     <room id="kitchen">
-        <name>The Kremlin kitchens</name>
+        <name>the Kremlin kitchens</name>
         <description>This seithing mass of people is the kitchen, people are running back and forth with huge looming chefs barking orders. You eye suspiciously the red stains on the floor, it would be wise to watch your step.</description>
         <items>
             <item>kitchen_lunch</item>
@@ -112,7 +112,7 @@ s        <name>The Grand Hall</name>
         </exits>
     </room>
     <room id="gardens_east">
-        <name>The Eastern Gardens</name>
+        <name>the Eastern Gardens</name>
         <description>As you look around the eastern gardens you notice a sea of golden statues or the great leaders of this age. You soon realise they are all statues of Stalin. Around the edge of the garden there are trimmed hedges. You are standing on the marble pathway leading to a fountain in the centre of the gardens. Out of the fountain, an everlasting stream of Vodka emerges. A great oak tree stands in the right-hand corner of the eastern gardens, under which Kirillina the Bear rides her tri-cycle round and round the trunk of the tree. She appears to be having the time of her life and any sign of disturbance would send her into a raging frenzy.</description>
         <items></items>
         <puzzles>
@@ -124,7 +124,7 @@ s        <name>The Grand Hall</name>
         </exits>
     </room>
     <room id="gardens_west">
-        <name>The Western Gardens</name>
+        <name>the Western Gardens</name>
         <description>The Western Gardens are very similair to the Eastern Gardens but if you look closer at the statues and hedges you will notice the much a darker appeal of these gardens, it would not be wise to dwell on if that statue looks like your cousin.</description>
         <items></items>
         <puzzles></puzzles>
@@ -147,7 +147,7 @@ Snacks and Drinks lay in front of you. Let's hope that Stalin will like it. </de
         </exits>
     </room>
     <room id="stairs3">
-        <name>Basement stairs</name>
+        <name>basement stairs</name>
         <description>You go down the stairs to the basement level of the Kremlin, the air is dark and musky, are you sure you want to be here?</description>
         <items>
         </items>
@@ -158,7 +158,7 @@ Snacks and Drinks lay in front of you. Let's hope that Stalin will like it. </de
         </exits>
     </room>
     <room id="underground_junction">
-        <name>An undergound junction</name>
+        <name>an undergound junction</name>
         <description>The path splits in three directions, I would take care with which way you go.</description>
         <items>
         </items>
@@ -171,7 +171,7 @@ Snacks and Drinks lay in front of you. Let's hope that Stalin will like it. </de
         </exits>
     </room>
     <room id="bad_room">
-        <name>Unknown room</name>
+        <name>unknown room</name>
         <description>This was definitely the wrong way. *click* the door locks behind you.</description>
         <items>
         </items>
@@ -180,7 +180,7 @@ Snacks and Drinks lay in front of you. Let's hope that Stalin will like it. </de
         </exits>
     </room>
     <room id="torture_room">
-        <name>Unknown room</name>
+        <name>unknown room</name>
         <description>You have made it to the torture room.</description>
         <items>
         </items>

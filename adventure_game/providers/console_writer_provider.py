@@ -16,6 +16,7 @@ class ConsoleWriterProvider(IWriter):
             sys.stdout.write(letter)
             sys.stdout.flush()
             time.sleep(.1)
+        print()
 
     # end reference
 
