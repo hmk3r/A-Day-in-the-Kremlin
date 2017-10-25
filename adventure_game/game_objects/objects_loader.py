@@ -36,6 +36,19 @@ class ObjectsLoader(IObjectsLoader):
                 self.rooms_as_objects,
                 self.player_as_object]
 
+    def reload(self):
+        self.items_as_objects = {}
+        self.puzzles_as_objects = {}
+        self.rooms_as_objects = {}
+        self.player_as_object = None
+        self.load_custom_objects()
+        self.convert_objects()
+
+        return [self.items_as_objects,
+                self.puzzles_as_objects,
+                self.rooms_as_objects,
+                self.player_as_object]
+
     # reference - adapted from:
     # https://stackoverflow.com/questions/34554856/python-instantiate-all-classes-within-a-module Jan 1 '16 at 9:03
     # Creates a new instance of all subclasses of a class

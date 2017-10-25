@@ -39,6 +39,9 @@ class GameEngine(IEngine):
             self.writer.write("Thanks for playing! You're welcome back anytime!")
             self.writer.write_separator()
 
+    def restart(self):
+        [self.items, self.puzzles, self.rooms, self.player] = self.objects_loader.reload()
+
     def get_next_room(self, room_id):
         if room_id not in self.rooms:
             return None
@@ -211,6 +214,8 @@ class GameEngine(IEngine):
                 self.writer.write("Look at what?")
         elif command[0] == constants.COMMAND_SUICIDE:
             self.execute_suicide()
+        elif command[0] == constants.COMMAND_RESTART:
+            self.restart()
         else:
             self.writer.write("This makes no sense.")
 
