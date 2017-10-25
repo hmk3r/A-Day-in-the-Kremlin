@@ -46,12 +46,11 @@ class GameEngine(IEngine):
         return self.rooms[room_id]
 
     def check_win(self):
-        is_completed = True
         for room_id in self.rooms:
             if not self.rooms[room_id].check_if_completed():
                 return False
-            is_completed = is_completed and self.rooms[room_id].check_if_completed()
-        return is_completed
+
+        return True
 
     def execute_go(self, direction):
 
@@ -168,6 +167,14 @@ class GameEngine(IEngine):
         else:
             self.writer.write("Wrong answer!")
 
+    def execute_suicide(self):
+        happiness = self.items["happiness"]
+        if happiness in self.player.inventory:
+            self.writer.write("You are still happy! Why would you even consider doing that?")
+            return
+
+        raise PlayerDeadException("You've killed yourself, but your spirit is not free. Instead of ending up in front of the Heaven's door, your spirit was transferred to GULAG!")
+
     def execute_command(self, command):
 
         if 0 == len(command):
@@ -202,6 +209,8 @@ class GameEngine(IEngine):
                 self.execute_look(command[1])
             else:
                 self.writer.write("Look at what?")
+        elif command[0] == constants.COMMAND_SUICIDE:
+            self.execute_suicide()
         else:
             self.writer.write("This makes no sense.")
 
@@ -221,10 +230,10 @@ class GameEngine(IEngine):
 
         self.writer.write("Type LOOK AT {ITEM} to inspect an item in your inventory or room.")
         for item in self.player.location.items:
-            self.writer.write("Type TAKE {0} to take {1}".format(item.id.upper(), item.name))
+            self.writer.write("Type TAKE {0} to take {1}.".format(item.id.upper(), item.name))
 
         for i in self.player.inventory:
-            self.writer.write("Type DROP {0} to drop {1}".format(i.id.upper(), i.name))
+            self.writer.write("Type DROP {0} to drop {1}.".format(i.id.upper(), i.name))
 
         for direction in self.player.location.exits:
             if not self.player.location.exits[direction]:
@@ -232,7 +241,11 @@ class GameEngine(IEngine):
 
             room_exit = self.rooms[self.player.location.exits[direction]]
 
-            self.writer.write("Type GO {0} to go to {1}".format(direction.upper(), room_exit.name))
+            self.writer.write("Type GO {0} to go to {1}.".format(direction.upper(), room_exit.name))
+
+        happiness = self.items["happiness"]
+        if happiness not in self.player.inventory:
+            print("Type SUICIDE to kill yourself and escape this communist hell once and for all.")
 
     def setup(self):
         [self.items, self.puzzles, self.rooms, self.player] = self.objects_loader.load()
