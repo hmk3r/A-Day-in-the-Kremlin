@@ -21,7 +21,7 @@ class GameEngine(IEngine):
             while True:
                 self.print_current_game_info()
 
-                user_input = self.reader.read_input("What would you ike to do? >")
+                user_input = self.reader.read_input("What would you like to do? >")
                 command = self.parser.parse_command(user_input)
                 self.writer.clear()
                 self.execute_command(command)
