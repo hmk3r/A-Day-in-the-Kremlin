@@ -23,9 +23,7 @@
     <item id="tesco_lunch">
         <name>Tesco's finest meal deal.</name>
         <description>This is Stalin's favourite Meal Deal Combo, Falafel
-and Houmous Wrap for his main (the mango chutney really compliments the chickpeas), 
-Robinsons Fruit Shoot Blackcurrent and Apple for his drink (light, fruity and aromatic, 
-3 of his favourite factors while choosing a drink), and a Flake for his snack (this 
+and Houmous Wrap for his main (the mango chutney really compliments the chickpeas), and a Flake for his snack (this 
 delicate milk chocolate bar compliments his choice of main perfectly).</description>
     </item>
     <item id="collar">
@@ -43,5 +41,9 @@ delicate milk chocolate bar compliments his choice of main perfectly).</descript
     <item id="happiness">
         <name>Your Happiness</name>
         <description>It's your first day, your eyes still shine with hope and contentment, this will soon fade.</description>
+    </item>
+    <item id="bear">
+        <name>Tamed bear</name>
+        <description>The majestic beast that is Kirillina</description>
     </item>
 </items>

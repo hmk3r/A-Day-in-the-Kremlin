@@ -21,6 +21,7 @@
             <item>lead</item>
         </items>
         <puzzles>
+            <puzzle>drink_dilemma</puzzle>
         </puzzles>
         <exits>
              <east>reception</east>
@@ -43,11 +44,13 @@
     </room>
     <room id="toilet">
         <name>The Golden Throne</name>
-        <description>Sometimes called the 8th wonder of the world, Stalin's throne room or toilet is as majestic as it is smelly. The toilet seat alone is worth more than your house.</description>
+        <description>You are in the toilet which has been heavily decorated in Stalin’s favourite colour ‘Flamingo Pink’. The dim light and horrendous smell already makes you feel like you’ve walked into a sewer only it’s stuffy and warm. A portrait of his beloved mother hangs above the sink… Christ she looks just like him. A gold plated toilet sits in the far corner which Stalin calls his ‘Throne’ and no wonder why! The horrible smell is obviously coming from under the seat… your only hope is to plead that Stalin has had a light lunch. You approach without heaving… Doesn’t this man know how to flush?!</description>
         <items>
             <item>toilet_brush</item>
         </items>
-        <puzzles></puzzles>
+        <puzzles>
+            <puzzle>toilet_dilemma</puzzle>
+        </puzzles>
         <exits>
             <north>bathroom</north>
         </exits>
@@ -112,7 +115,9 @@ s        <name>The Grand Hall</name>
         <name>The Eastern Gardens</name>
         <description>As you look around the eastern gardens you notice a sea of golden statues or the great leaders of this age. You soon realise they are all statues of Stalin. Around the edge of the garden there are trimmed hedges. You are standing on the marble pathway leading to a fountain in the centre of the gardens. Out of the fountain, an everlasting stream of Vodka emerges. A great oak tree stands in the right-hand corner of the eastern gardens, under which Kirillina the Bear rides her tri-cycle round and round the trunk of the tree. She appears to be having the time of her life and any sign of disturbance would send her into a raging frenzy.</description>
         <items></items>
-        <puzzles></puzzles>
+        <puzzles>
+            <puzzle>bear_dilemma</puzzle>
+        </puzzles>
         <exits>
             <east>grand_hall</east>
             <west>gardens_west</west>
@@ -124,7 +129,7 @@ s        <name>The Grand Hall</name>
         <items></items>
         <puzzles></puzzles>
         <exits>
-            <east>gardens_west</east>
+            <east>gardens_east</east>
             <south>tesco</south>
         </exits>
     </room>
