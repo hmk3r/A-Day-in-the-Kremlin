@@ -22,5 +22,5 @@ class DrinkDilemma(Puzzle):
             raise PlayerDeadException(reason)
 
         if answer == 3:
-            reason = "Stalin is offended by your choice and sends you to a labour camp for 5 year, you die slowly of exhaustion."
+            reason = "Stalin is offended by your choice and sends you to a labour camp for 5 years, you die slowly of exhaustion."
             raise PlayerDeadException(reason)
