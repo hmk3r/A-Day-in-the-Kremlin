@@ -28,7 +28,7 @@ class GameEngine(IEngine):
                 self.execute_command(command)
                 if self.check_win():
                     # Display end game screen
-                    raise PlayerDeadException("You won!")
+                    raise PlayerDeadException("Congratulations, You have managed to survive the day. I hope you've enjoyed, because you will be doing it all over again tommorrow. Good Luck xoxo")
         except PlayerDeadException as player_dead_exception:
             self.writer.write_separator()
             self.writer.write(str(player_dead_exception))
