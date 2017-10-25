@@ -56,7 +56,7 @@
             <answer>3) Firm but fair, like a mother you take a middle ground when you clean the toilet.</answer>
         </possible_answers>
         <correct_answer>3</correct_answer>
-        <win_message>You have cleaned what gusto that Stalin approves off.</win_message>
+        <win_message>You have cleaned with the correct amount of gusto. Stalin approves.</win_message>
         <required_items>
             <item>toilet_brush</item>
             <item>toilet_cleaner</item>
