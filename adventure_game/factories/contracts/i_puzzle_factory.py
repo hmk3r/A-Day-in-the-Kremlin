@@ -9,6 +9,7 @@ class IPuzzleFactory(metaclass=ABCMeta):
                       description,
                       possible_answers,
                       correct_answer,
+                      win_message=None,
                       reward=None,
                       required_items=None,
                       takes_items=False):

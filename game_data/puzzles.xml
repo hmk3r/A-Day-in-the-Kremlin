@@ -17,6 +17,7 @@
             <answer>You have to guess this one</answer>
         </possible_answers>
         <correct_answer>42</correct_answer>
+        <win_message>You've guessed the this correctly!</win_message>
         <required_items>
             <item>bubblebath_power</item>
         </required_items>

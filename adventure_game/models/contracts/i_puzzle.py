@@ -39,6 +39,11 @@ class IPuzzle(metaclass=ABCMeta):
 
     @property
     @abstractmethod
+    def win_message(self):
+        pass
+
+    @property
+    @abstractmethod
     def is_solved(self):
         pass
 

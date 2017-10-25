@@ -139,8 +139,9 @@ class GameEngine(IEngine):
         if puzzle.answer_is_correct(answer):
             self.writer.write_separator()
             self.writer.write("Correct answer!")
+            if puzzle.win_message:
+                self.writer.write(puzzle.win_message)
             if puzzle.reward:
-                self.writer.write("Here's {0}".format(puzzle.reward.name))
                 self.player.take_item(puzzle.reward)
             if puzzle.takes_items:
                 for used_item in puzzle.required_items:

@@ -8,6 +8,7 @@ class Puzzle(IPuzzle):
                  description=None,
                  possible_answers=None,
                  correct_answer=None,
+                 win_message=None,
                  reward=None,
                  required_items=None,
                  takes_items=False):
@@ -16,6 +17,7 @@ class Puzzle(IPuzzle):
         self._description = description
         self._possible_answers = possible_answers if possible_answers else []
         self._correct_answer = correct_answer
+        self._win_message = win_message
         self._reward = reward
         self._required_items = required_items
         self._takes_items = takes_items
@@ -48,6 +50,10 @@ class Puzzle(IPuzzle):
     @property
     def correct_answer(self):
         return self._correct_answer
+
+    @property
+    def win_message(self):
+        return self._win_message
 
     @property
     def name(self):

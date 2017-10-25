@@ -71,6 +71,7 @@ class ObjectsLoader(IObjectsLoader):
             puzzle_description = self.raw_puzzles[puzzle_id]["description"]
             puzzle_possible_answers = self.raw_puzzles[puzzle_id]["possible_answers"]
             puzzle_correct_answer = self.raw_puzzles[puzzle_id]["correct_answer"]
+            puzzle_win_message = self.raw_puzzles[puzzle_id]["win_message"]
             reward_item_id = self.raw_puzzles[puzzle_id]["reward_item_id"]
             reward_item = self.items_as_objects[reward_item_id] if reward_item_id else None
 
@@ -86,6 +87,7 @@ class ObjectsLoader(IObjectsLoader):
                 puzzle._description = puzzle_description
                 puzzle._possible_answers = puzzle_possible_answers
                 puzzle._correct_answer = puzzle_correct_answer
+                puzzle._win_message = puzzle_win_message
                 puzzle._reward = reward_item
                 puzzle._required_items = puzzle_required_items
                 puzzle._takes_items = puzzle_takes_items
@@ -95,6 +97,7 @@ class ObjectsLoader(IObjectsLoader):
                                                            puzzle_description,
                                                            puzzle_possible_answers,
                                                            puzzle_correct_answer,
+                                                           win_message=puzzle_win_message,
                                                            reward=reward_item,
                                                            required_items=puzzle_required_items,
                                                            takes_items=puzzle_takes_items)
@@ -162,6 +165,7 @@ class ObjectsLoader(IObjectsLoader):
             puzzle_name = puzzle.find("name").string
             puzzle_desc = puzzle.description.string
             correct_answer = puzzle.correct_answer.string
+            win_message = puzzle.win_message.string if puzzle.win_message else None
             reward_item_id = puzzle.reward_item_id.string if puzzle.reward_item_id else None
             possible_answers_elements = puzzle.possible_answers.find_all("answer")
             possible_answers = []
@@ -179,6 +183,7 @@ class ObjectsLoader(IObjectsLoader):
                                            "description": puzzle_desc,
                                            "possible_answers": possible_answers,
                                            "correct_answer": correct_answer,
+                                           "win_message": win_message,
                                            "reward_item_id": reward_item_id,
                                            "required_items_ids": required_items,
                                            "takes_items": takes_items}

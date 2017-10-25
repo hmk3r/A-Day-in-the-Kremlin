@@ -9,6 +9,7 @@ class PuzzleFactory(IPuzzleFactory):
                       description,
                       possible_answers,
                       correct_answer,
+                      win_message=None,
                       reward=None,
                       required_items=None,
                       takes_items=False):
@@ -18,6 +19,7 @@ class PuzzleFactory(IPuzzleFactory):
                       description,
                       possible_answers,
                       correct_answer,
+                      win_message,
                       reward,
                       required_items,
                       takes_items)
