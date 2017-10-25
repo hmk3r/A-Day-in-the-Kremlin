@@ -71,6 +71,16 @@ class ObjectsLoader(IObjectsLoader):
             puzzle_description = self.raw_puzzles[puzzle_id]["description"]
             puzzle_possible_answers = self.raw_puzzles[puzzle_id]["possible_answers"]
             puzzle_correct_answer = self.raw_puzzles[puzzle_id]["correct_answer"]
+            puzzle_win_message = self.raw_puzzles[puzzle_id]["win_message"]
+            reward_item_id = self.raw_puzzles[puzzle_id]["reward_item_id"]
+            reward_item = self.items_as_objects[reward_item_id] if reward_item_id else None
+
+            puzzle_required_items = []
+            for required_item_id in self.raw_puzzles[puzzle_id]["required_items_ids"]:
+                puzzle_required_items.append(self.items_as_objects[required_item_id])
+
+            puzzle_takes_items = self.raw_puzzles[puzzle_id]["takes_items"]
+            puzzle_is_annoying = self.raw_puzzles[puzzle_id]["is_annoying"]
 
             if is_custom_puzzle:
                 puzzle = self.puzzles_as_objects[puzzle_id]
@@ -78,16 +88,22 @@ class ObjectsLoader(IObjectsLoader):
                 puzzle._description = puzzle_description
                 puzzle._possible_answers = puzzle_possible_answers
                 puzzle._correct_answer = puzzle_correct_answer
+                puzzle._win_message = puzzle_win_message
+                puzzle._reward = reward_item
+                puzzle._required_items = puzzle_required_items
+                puzzle._takes_items = puzzle_takes_items
+                puzzle._is_annoying = puzzle_is_annoying
             else:
                 puzzle = self.puzzle_factory.create_puzzle(puzzle_id,
                                                            puzzle_name,
                                                            puzzle_description,
                                                            puzzle_possible_answers,
-                                                           puzzle_correct_answer)
-
-            reward_item_id = self.raw_puzzles[puzzle_id]["reward_item_id"]
-            if reward_item_id:
-                puzzle.reward = self.items_as_objects[reward_item_id]
+                                                           puzzle_correct_answer,
+                                                           win_message=puzzle_win_message,
+                                                           reward=reward_item,
+                                                           required_items=puzzle_required_items,
+                                                           takes_items=puzzle_takes_items,
+                                                           is_annoying=puzzle_is_annoying)
 
             self.puzzles_as_objects[puzzle_id] = puzzle
 
@@ -152,16 +168,30 @@ class ObjectsLoader(IObjectsLoader):
             puzzle_name = puzzle.find("name").string
             puzzle_desc = puzzle.description.string
             correct_answer = puzzle.correct_answer.string
+            win_message = puzzle.win_message.string if puzzle.win_message else None
             reward_item_id = puzzle.reward_item_id.string if puzzle.reward_item_id else None
             possible_answers_elements = puzzle.possible_answers.find_all("answer")
             possible_answers = []
             for answer_element in possible_answers_elements:
                 possible_answers.append(answer_element.string)
+
+            required_items_elements = puzzle.required_items.find_all("item") if puzzle.required_items else []
+            required_items = []
+            for required_item_element in required_items_elements:
+                required_items.append(required_item_element.string)
+
+            takes_items = puzzle.has_attr("takes_items")
+            is_annoying = puzzle.has_attr("is_annoying")
+
             self.raw_puzzles[puzzle_id] = {"name": puzzle_name,
                                            "description": puzzle_desc,
                                            "possible_answers": possible_answers,
                                            "correct_answer": correct_answer,
-                                           "reward_item_id": reward_item_id}
+                                           "win_message": win_message,
+                                           "reward_item_id": reward_item_id,
+                                           "required_items_ids": required_items,
+                                           "takes_items": takes_items,
+                                           "is_annoying": is_annoying}
 
         rooms = xml.data.rooms.find_all("room")
         for room in rooms:
@@ -169,12 +199,12 @@ class ObjectsLoader(IObjectsLoader):
             room_name = room.find("name").string
             room_desc = room.description.string
 
-            room_items_elements = room.items.find_all('item')
+            room_items_elements = room.items.find_all("item") if room.items else []
             room_items = []
             for room_item_element in room_items_elements:
                 room_items.append(room_item_element.string)
 
-            room_puzzles_elements = room.puzzles.find_all('puzzle')
+            room_puzzles_elements = room.puzzles.find_all("puzzle") if room.puzzles else []
             room_puzzles = []
             for room_puzzle_element in room_puzzles_elements:
                 room_puzzles.append(room_puzzle_element.string)

@@ -19,12 +19,27 @@ class IPuzzle(metaclass=ABCMeta):
 
     @property
     @abstractmethod
+    def required_items(self):
+        pass
+
+    @property
+    @abstractmethod
+    def takes_items(self):
+        pass
+
+    @property
+    @abstractmethod
     def possible_answers(self):
         pass
 
     @property
     @abstractmethod
     def correct_answer(self):
+        pass
+
+    @property
+    @abstractmethod
+    def win_message(self):
         pass
 
     @property
@@ -37,9 +52,9 @@ class IPuzzle(metaclass=ABCMeta):
     def reward(self):
         pass
 
-    @reward.setter
+    @property
     @abstractmethod
-    def reward(self, value):
+    def is_annoying(self):
         pass
 
     @abstractmethod

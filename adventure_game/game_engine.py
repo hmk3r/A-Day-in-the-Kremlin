@@ -23,6 +23,7 @@ class GameEngine(IEngine):
 
                 user_input = self.reader.read_input("What would you ike to do? >")
                 command = self.parser.parse_command(user_input)
+                self.writer.clear()
                 self.execute_command(command)
                 if self.check_win():
                     # Display end game screen
@@ -114,11 +115,20 @@ class GameEngine(IEngine):
             self.writer.write("You've already solved this puzzle")
             return
 
+        if not set(puzzle.required_items).issubset(self.player.inventory):
+            self.writer.write_separator()
+            self.writer.write("You don't have the required items to complete this puzzle!")
+            self.writer.write("Think logically and you'll find out what you need.")
+            return
+
         self.writer.write_separator()
         self.writer.write(puzzle.name.upper())
 
         self.writer.write_separator()
-        self.writer.write(puzzle.description)
+        if puzzle.is_annoying:
+            self.writer.write_slowly(puzzle.description)
+        else:
+            self.writer.write(puzzle.description)
 
         if puzzle.reward:
             self.writer.write("You'll get {0} if you solve this correctly".format(puzzle.reward.name))
@@ -133,9 +143,13 @@ class GameEngine(IEngine):
         if puzzle.answer_is_correct(answer):
             self.writer.write_separator()
             self.writer.write("Correct answer!")
+            if puzzle.win_message:
+                self.writer.write(puzzle.win_message)
             if puzzle.reward:
-                self.writer.write("Here's {0}".format(puzzle.reward.name))
                 self.player.take_item(puzzle.reward)
+            if puzzle.takes_items:
+                for used_item in puzzle.required_items:
+                    self.player.drop_item(used_item)
         else:
             self.writer.write("Wrong answer!")
 
@@ -182,7 +196,7 @@ class GameEngine(IEngine):
 
         for puzzle in self.player.location.puzzles:
             if not puzzle.is_solved:
-                self.writer.write("Type SOLVE {0} to solve {1}.".format(puzzle.id.upper(), puzzle.name))
+                self.writer.write("Type SOLVE {0} to {1}.".format(puzzle.id.upper(), puzzle.name))
 
         for item in self.player.location.items:
             self.writer.write("Type TAKE {0} to take {1}".format(item.id.upper(), item.name))

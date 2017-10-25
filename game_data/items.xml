@@ -8,12 +8,8 @@
         <name>A manky toilet brush</name>
         <description>You can clean toilets, teeth, and backs with one of these.</description>
     </item>
-    <item id="bubblebath_lemon">
-        <name>Lemon scented bubblebath</name>
-        <description>You put it in a bath.</description>
-    </item>
-    <item id="bubblebath_power">
-        <name>A power scented bubblebath</name>
+    <item id="bubble_bath">
+        <name>A power scented bubble bath</name>
         <description>You put it in a bath of powerful people.</description>
     </item>
     <item id="rubber_duck">
