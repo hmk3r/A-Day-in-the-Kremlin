@@ -2,7 +2,7 @@
 <items>
     <item id="toilet_cleaner">
         <name>Toilet cleaning product</name>
-        <description>You clean toilets with it.</description>
+        <description>Cilit BANG, and the dirt is gone.</description>
     </item>
     <item id="toilet_brush">
         <name>A manky toilet brush</name>
@@ -14,17 +14,15 @@
     </item>
     <item id="rubber_duck">
         <name>A pink rubber duck</name>
-        <description>Essential for every bath.</description>
+        <description>A top essential for every bath. Closely followed by candles.</description>
     </item>
     <item id="kitchen_lunch">
         <name>A Kitchen prepared lunch</name>
         <description>Prepared by the Kremlin's finest cooks this meal consists of a jacket potato, cheese and a bottle of vodka.</description>
     </item>
     <item id="tesco_lunch">
-        <name>Tesco's finest meal deal.</name>
-        <description>This is Stalin's favourite Meal Deal Combo, Falafel
-and Houmous Wrap for his main (the mango chutney really compliments the chickpeas), and a Flake for his snack (this 
-delicate milk chocolate bar compliments his choice of main perfectly).</description>
+        <name>Tesco meal deal.</name>
+        <description>This is Stalin's favourite Meal Deal Combo, Falafel and Houmous Wrap for his main (the mango chutney really compliments the chickpeas) and a Flake for his snack (this delicate milk chocolate bar compliments his choice of main perfectly).</description>
     </item>
     <item id="collar">
         <name>Kirillina's collar</name>
@@ -36,7 +34,7 @@ delicate milk chocolate bar compliments his choice of main perfectly).</descript
     </item>
     <item id="list">
         <name>Today's Job list</name>
-        <description>1. clean toilet 2. fetch lunch 3. fetch Sona 4. run bath 5. dispose of Capitlists.</description>
+        <description>1. clean toilet 2. fetch lunch 3. fetch Sona 4. run bath 5. dispose of Capitalists.</description>
     </item>
     <item id="happiness">
         <name>Your Happiness</name>
