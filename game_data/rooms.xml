@@ -70,7 +70,7 @@
     </room>
     <room id="stairs2">
         <name>1st storey stair case</name>
-        <description>A small landing with stairs leading leading down to the ground floor.</description>
+        <description>A small landing with stairs leading down to the ground floor.</description>
         <items></items>
         <puzzles></puzzles>
         <exits>
