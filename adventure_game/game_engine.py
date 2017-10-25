@@ -68,6 +68,21 @@ class GameEngine(IEngine):
 
         self.player.move_to(next_room)
 
+    def execute_look(self, item_id):
+        if item_id not in self.items:
+            print("This item does not exist")
+            return
+        item = self.items[item_id]
+
+        if (item in self.player.inventory) or (item in self.player.location.items):
+            print(item.description)
+        else:
+            print("You can't inspect this item right now.")
+        
+        
+            
+
+
     def execute_take(self, item_id):
         if item_id not in self.items:
             self.writer.write_separator()
@@ -181,6 +196,12 @@ class GameEngine(IEngine):
                 self.execute_solve(command[1])
             else:
                 self.writer.write("Solve what?")
+        
+        elif command[0] == constants.COMMAND_LOOK:
+            if len(command) > 1:
+                self.execute_look(command[1])
+            else:
+                self.writer.write("Look at what?")
         else:
             self.writer.write("This makes no sense.")
 
@@ -198,6 +219,7 @@ class GameEngine(IEngine):
             if not puzzle.is_solved:
                 self.writer.write("Type SOLVE {0} to {1}.".format(puzzle.id.upper(), puzzle.name))
 
+        self.writer.write("Type LOOK AT {ITEM} to inspect an item in your inventory or room.")
         for item in self.player.location.items:
             self.writer.write("Type TAKE {0} to take {1}".format(item.id.upper(), item.name))
 
