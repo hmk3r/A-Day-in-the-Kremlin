@@ -65,7 +65,7 @@
     </puzzle>
     <puzzle id="bear_dilemma" takes_items="" is_annoying="">
         <name>Taming Kirillina</name>
-        <description>How do you want to tackle restraining Kirillina?</description>
+        <description>How do you want to tackle restraining Kirillina? </description>
         <possible_answers>
             <answer>1) Slow and steady wins the race, you decide to approach the bear carefully and slowly wihout making eye contact.</answer>
             <answer>2) You fill yourself with calm and walk steadily towards the bear holding out the collar and lead in each hand.</answer>

@@ -129,7 +129,7 @@ s        <name>The Grand Hall</name>
         <items></items>
         <puzzles></puzzles>
         <exits>
-            <east>gardens_west</east>
+            <east>gardens_east</east>
             <south>tesco</south>
         </exits>
     </room>
