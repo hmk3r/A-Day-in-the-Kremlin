@@ -21,7 +21,7 @@
         <win_message>Good job, comrade! Stalin likes everything that's made in his kingdom and, most importantly, hates lemons. Here's the bubble bath.</win_message>
         <reward_item_id>bubble_bath</reward_item_id>
     </puzzle>
-    <puzzle id="bathtub_dilemma" takes_items="">
+    <puzzle id="bathtub_dilemma" takes_items="" is_annoying="">
         <name>prepare Stalin's bathtub</name>
         <description>You have to prepare your leader's bathtub. You know you need to add in some of that bubble bath thing, but you don't know how much caps to pour in exactly. You have to make a lucky guess.</description>
         <possible_answers>

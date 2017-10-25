@@ -12,5 +12,6 @@ class IPuzzleFactory(metaclass=ABCMeta):
                       win_message=None,
                       reward=None,
                       required_items=None,
-                      takes_items=False):
+                      takes_items=False,
+                      is_annoying=False):
         pass

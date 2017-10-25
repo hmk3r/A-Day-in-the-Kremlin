@@ -11,7 +11,8 @@ class Puzzle(IPuzzle):
                  win_message=None,
                  reward=None,
                  required_items=None,
-                 takes_items=False):
+                 takes_items=False,
+                 is_annoying=False):
         self._id = puzzle_id
         self._name = name
         self._description = description
@@ -21,6 +22,7 @@ class Puzzle(IPuzzle):
         self._reward = reward
         self._required_items = required_items
         self._takes_items = takes_items
+        self._is_annoying = is_annoying
         self._is_solved = False
 
     @property
@@ -54,6 +56,10 @@ class Puzzle(IPuzzle):
     @property
     def win_message(self):
         return self._win_message
+
+    @property
+    def is_annoying(self):
+        return self._is_annoying
 
     @property
     def name(self):

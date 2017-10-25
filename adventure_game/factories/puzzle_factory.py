@@ -12,7 +12,8 @@ class PuzzleFactory(IPuzzleFactory):
                       win_message=None,
                       reward=None,
                       required_items=None,
-                      takes_items=False):
+                      takes_items=False,
+                      is_annoying=False):
 
         return Puzzle(puzzle_id,
                       name,
@@ -22,5 +23,6 @@ class PuzzleFactory(IPuzzleFactory):
                       win_message,
                       reward,
                       required_items,
-                      takes_items)
+                      takes_items,
+                      is_annoying)
 

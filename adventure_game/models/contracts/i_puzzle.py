@@ -52,6 +52,11 @@ class IPuzzle(metaclass=ABCMeta):
     def reward(self):
         pass
 
+    @property
+    @abstractmethod
+    def is_annoying(self):
+        pass
+
     @abstractmethod
     def answer_is_correct(self, answer):
         pass

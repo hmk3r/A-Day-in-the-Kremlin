@@ -125,7 +125,10 @@ class GameEngine(IEngine):
         self.writer.write(puzzle.name.upper())
 
         self.writer.write_separator()
-        self.writer.write(puzzle.description)
+        if puzzle.is_annoying:
+            self.writer.write_slowly(puzzle.description)
+        else:
+            self.writer.write(puzzle.description)
 
         if puzzle.reward:
             self.writer.write("You'll get {0} if you solve this correctly".format(puzzle.reward.name))

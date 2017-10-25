@@ -7,6 +7,10 @@ class IWriter(metaclass=ABCMeta):
         pass
 
     @abstractmethod
+    def write_slowly(self, text):
+        pass
+
+    @abstractmethod
     def write_separator(self):
         pass
 
