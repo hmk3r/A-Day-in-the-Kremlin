@@ -80,7 +80,7 @@
     </room>
     <room id="stairs1">
         <name>Ground floor stair case</name>
-        <description>A small landing with stairs leading leading up to the 1st floor.</description>
+        <description>A small landing with stairs leading up to the 1st floor.</description>
         <items></items>
         <puzzles></puzzles>
         <exits>
