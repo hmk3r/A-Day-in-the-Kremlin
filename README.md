@@ -12,5 +12,5 @@ sudo python3 -m pip install -r requirements.txt
 
 2. Run with:
 ```
-python3 adventure_game.py
+python3 game.py
 ```
