@@ -18,7 +18,7 @@ class DrinkDilemma(Puzzle):
             return True
 
         if answer == 2:
-            reason = "YOU HAVE POURED STALIN'S SPECIAL DRINK!!! This is to be only pured after a great victory. This crime is so great that you and your enitre village are erased from all memory..."
+            reason = "YOU HAVE POURED STALIN'S SPECIAL DRINK!!! This is to be only poured after a great victory. This crime is so great that you and your enitre village are erased from all memory..."
             raise PlayerDeadException(reason)
 
         if answer == 3:
