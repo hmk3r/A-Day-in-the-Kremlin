@@ -33,4 +33,52 @@
             <item>bubble_bath</item>
         </required_items>
     </puzzle>
+    <puzzle id="drink_dilemma" takes_items="">
+        <name>Pour Stalin a drink with the his lunch.</name>
+        <description>You have managed to get the right lunch, but do you know what stalin likes to accompany his lunch.</description>
+        <possible_answers>
+            <answer>1) Some refreshing water plucked from from a spring in a local meadow</answer>
+            <answer>2) A small decanter filled with a secret blend, creating a potent mix that only the most willful of men can drink.</answer>
+            <answer>3) Robinsons Fruit Shoot Blackcurrent and Apple for his drink (light, fruity and aromatic, 
+            3 of his favourite factors while choosing a drink).</answer>
+        </possible_answers>
+        <correct_answer>1</correct_answer>
+        <win_message>You have made a good choice, you know stalin only drinks water during the day.</win_message>
+        <required_items>
+            <item>tesco_lunch</item>
+        </required_items>
+    </puzzle>
+    <puzzle id="toilet_dilemma" takes_items="" is_annoying="">
+        <name>CLean his Golden Throne</name>
+        <description>How do you want to clean the toilet?</description>
+        <possible_answers>
+            <answer>1) Slowly and carefully, you approach this task in the same why a painter would approach a blank canvas.</answer>
+            <answer>2) Roughly and with gusto, like a miner through a coal vein.</answer>
+            <answer>3) Firm but fair, like a mother you take a middle ground when you clean the toilet.</answer>
+        </possible_answers>
+        <correct_answer>2</correct_answer>
+        <win_message>You have cleaned what gusto that stalin approves off.</win_message>
+        <required_items>
+            <item>toilet_brush</item>
+            <item>toilet_cleaner</item>
+        </required_items>
+    </puzzle>
+    <puzzle id="bear_dilemma" takes_items="" is_annoying="">
+        <name>Taming Kirillina</name>
+        <description>How do you want to tackle restraining Kirillina?</description>
+        <possible_answers>
+            <answer>1) Slow and steady wins the race, you decide to approach the bear carefully and slowly wihout making eye contact.</answer>
+            <answer>2) You fill yourself with calm and walk steadily towards the bear holding out the collar and lead in each hand.</answer>
+            <answer>3) You really have a death wish! You charge the bear and through shear force of will you hope to get the bear to heel.</answer>
+        </possible_answers>
+        <correct_answer>1</correct_answer>
+        <win_message>You have managed to re-capture Kirillina.</win_message>
+        <required_items>
+            <item>collar</item>
+            <item>lead</item>
+        </required_items>
+        <reward_item_id>bear</reward_item_id>
+    </puzzle>
+
+
 </puzzles>
