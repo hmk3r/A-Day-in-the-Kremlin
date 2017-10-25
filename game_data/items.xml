@@ -6,7 +6,7 @@
     </item>
     <item id="toilet_brush">
         <name>A manky toilet brush</name>
-        <description>You can clean toilets, teeth, and backs with one of these.</description>
+        <description>You find a toilet brush that looks like it’s from the roman times. Only Thor himself could scrub hard enough to clean anything with this - It is no more than a stick and sponge that keeps falling off. Ew! The stick end has been sharpened down and has a faded red colour to it… Hmm</description>
     </item>
     <item id="bubble_bath">
         <name>A power scented bubble bath</name>
@@ -22,7 +22,11 @@
     </item>
     <item id="tesco_lunch">
         <name>Tesco's finest meal deal.</name>
-        <description>If there is one thing supermarkets got right it is the meal deal.</description>
+        <description>This is Stalin's favourite Meal Deal Combo, Falafel
+and Houmous Wrap for his main (the mango chutney really compliments the chickpeas), 
+Robinsons Fruit Shoot Blackcurrent and Apple for his drink (light, fruity and aromatic, 
+3 of his favourite factors while choosing a drink), and a Flake for his snack (this 
+delicate milk chocolate bar compliments his choice of main perfectly).</description>
     </item>
     <item id="collar">
         <name>Kirillina's collar</name>

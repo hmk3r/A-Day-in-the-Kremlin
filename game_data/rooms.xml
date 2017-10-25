@@ -110,7 +110,7 @@ s        <name>The Grand Hall</name>
     </room>
     <room id="gardens_east">
         <name>The Eastern Gardens</name>
-        <description>These bountiful gardens spread lushly around you, paths lined with neat trimmed hedges and staurs spread away from you. It would be wise to keep to the path, you would be surprised how many people went for a walk in the gardens and never came back.</description>
+        <description>As you look around the eastern gardens you notice a sea of golden statues or the great leaders of this age. You soon realise they are all statues of Stalin. Around the edge of the garden there are trimmed hedges. You are standing on the marble pathway leading to a fountain in the centre of the gardens. Out of the fountain, an everlasting stream of Vodka emerges. A great oak tree stands in the right-hand corner of the eastern gardens, under which Kirillina the Bear rides her tri-cycle round and round the trunk of the tree. She appears to be having the time of her life and any sign of disturbance would send her into a raging frenzy.</description>
         <items></items>
         <puzzles></puzzles>
         <exits>
@@ -130,7 +130,9 @@ s        <name>The Grand Hall</name>
     </room>
     <room id="tesco">
         <name>Tesco</name>
-        <description>You stumble across something that looks vaguely familiar, a bright flourecent sign comfirms your doubts. This is indeed a supermarket hidden in the gardens of the kremlin. You go inside. </description>
+        <description>You have arrived in the nearest Tesco Express.
+You make your way to the Meal Deal isle; where many combinations of Mains,
+Snacks and Drinks lay in front of you. Lets hope Stalin will like it. </description>
         <items>
             <item>tesco_lunch</item>
         </items>
