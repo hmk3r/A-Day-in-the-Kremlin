@@ -57,7 +57,7 @@
     </room>
     <room id="cleaning_cupboard">
         <name>Cleaning Cupboard</name>
-        <description>A small room full of various from of cleaning products and a large picture of Lenin's right leg.</description>
+        <description>A small room full of various forms of cleaning products and a large picture of Lenin's right leg.</description>
         <items>
             <item>toilet_cleaner</item>
         </items>
