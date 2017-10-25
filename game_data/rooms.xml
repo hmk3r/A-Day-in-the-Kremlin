@@ -137,7 +137,7 @@ s        <name>The Grand Hall</name>
         <name>Tesco</name>
         <description>You have arrived in the nearest Tesco Express.
 You make your way to the Meal Deal isle; where many combinations of Mains,
-Snacks and Drinks lay in front of you. Lets hope Stalin will like it. </description>
+Snacks and Drinks lay in front of you. Let's hope that Stalin will like it. </description>
         <items>
             <item>tesco_lunch</item>
         </items>
