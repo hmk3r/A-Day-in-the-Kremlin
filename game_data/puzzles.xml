@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <puzzles>
     <puzzle id="quest">
-        <name>make a tough hoice</name>
+        <name>make a tough choice</name>
         <description>How do you want to kill the capitalist prisoners?</description>
         <possible_answers>
             <answer>1) Kill the Father first, then the mother and then the child. The child will witness the murder of its own parents, before being killed.</answer>
