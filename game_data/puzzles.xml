@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <puzzles>
     <puzzle id="quest">
-        <name>make a touch choice</name>
-        <description>How do you want to kill the prisoners</description>
+        <name>make a tough hoice</name>
+        <description>How do you want to kill the capitalist prisoners?</description>
         <possible_answers>
-            <answer>1) Kill the Father first, then the mother and then the child</answer>
-            <answer>2) Kill the Mother and the father but let the child go</answer>
-            <answer>3) Kill the child and then the mother while letting the father go to send a message to other rebellious citizens.</answer>
+            <answer>1) Kill the Father first, then the mother and then the child. The child will witness the murder of its own parents, before being killed.</answer>
+            <answer>2) Kill the Mother and the father but let the child go. The will witness the murder of its parents, and have to live with the psychological trauma for the rest of it's life. </answer>
+            <answer>3) Kill the child and then the mother while letting the father go, sending a message to other rebellious citizens.</answer>
         </possible_answers>
         <correct_answer>3</correct_answer>
     </puzzle>
     <puzzle id="bubble_bath_dilemma">
         <name>choose a bubble bath for Stalin</name>
-        <description>You notice two bubble bath flasks.One is lemon scented and the other is nothing special, but it has a stamp "Made in USSR". Which one do you chose?</description>
+        <description>You notice two bubble bath flasks. One is lemon scented and the other is nothing special, but it has a stamp "Made in USSR". Which one do you chose?</description>
         <possible_answers>
             <answer>1) Lemon scented</answer>
             <answer>2) The ordinary one</answer>
@@ -28,36 +28,35 @@
             <answer>Number of caps: Any number between 0 and 3</answer>
         </possible_answers>
         <correct_answer>4</correct_answer>
-        <win_message>Stalin always wants from you to overdeliver, but to be careful while doing it. Proceed with your other tasks comrade!</win_message>
+        <win_message>Stalin always wants you to overdeliver, 110% everytime, but to be careful while doing it. Proceed with your other tasks comrade!</win_message>
         <required_items>
             <item>bubble_bath</item>
         </required_items>
     </puzzle>
     <puzzle id="drink_dilemma" takes_items="">
         <name>Pour Stalin a drink with the his lunch.</name>
-        <description>You have managed to get the right lunch, but do you know what stalin likes to accompany his lunch.</description>
+        <description>You have managed to get the right lunch, but do you know what Stalin likes to accompany his lunch.</description>
         <possible_answers>
-            <answer>1) Some refreshing water plucked from from a spring in a local meadow</answer>
+            <answer>1) Some refreshing water collected from a spring in a local meadow.</answer>
             <answer>2) A small decanter filled with a secret blend, creating a potent mix that only the most willful of men can drink.</answer>
-            <answer>3) Robinsons Fruit Shoot Blackcurrent and Apple for his drink (light, fruity and aromatic, 
-            3 of his favourite factors while choosing a drink).</answer>
+            <answer>3) Robinsons Fruit Shoot Blackcurrent and Apple for his drink (light, fruity and aromatic, 3 of his favourite factors while choosing a drink).</answer>
         </possible_answers>
         <correct_answer>1</correct_answer>
-        <win_message>You have made a good choice, you know stalin only drinks water during the day.</win_message>
+        <win_message>You have made a good choice, you know Stalin only drinks water during the day.</win_message>
         <required_items>
             <item>tesco_lunch</item>
         </required_items>
     </puzzle>
     <puzzle id="toilet_dilemma" takes_items="" is_annoying="">
-        <name>CLean his Golden Throne</name>
+        <name>Clean his Golden Throne</name>
         <description>How do you want to clean the toilet?</description>
         <possible_answers>
-            <answer>1) Slowly and carefully, you approach this task in the same why a painter would approach a blank canvas.</answer>
+            <answer>1) Slowly and carefully, you approach this task in the same way a painter would approach a blank canvas.</answer>
             <answer>2) Roughly and with gusto, like a miner through a coal vein.</answer>
             <answer>3) Firm but fair, like a mother you take a middle ground when you clean the toilet.</answer>
         </possible_answers>
         <correct_answer>3</correct_answer>
-        <win_message>You have cleaned what gusto that stalin approves off.</win_message>
+        <win_message>You have cleaned what gusto that Stalin approves off.</win_message>
         <required_items>
             <item>toilet_brush</item>
             <item>toilet_cleaner</item>
