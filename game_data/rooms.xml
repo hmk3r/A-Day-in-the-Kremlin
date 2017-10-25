@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rooms>
     <room id="reception">
-        <name>Stalins Reception</name>
+        <name>Stalin's Reception</name>
         <description>This is the Stalin's reception.</description>
         <items>
             <item>list</item>
@@ -15,7 +15,7 @@
         </exits>
     </room>
     <room id="bedroom">
-        <name>Stalins master bedroom</name>
+        <name>Stalin's master bedroom</name>
         <description>It said that once you go in, you never come out.</description>
         <items>
             <item>lead</item>
@@ -69,7 +69,7 @@
         </exits>
     </room>
     <room id="stairs2">
-        <name>1st story stair case</name>
+        <name>1st storey stair case</name>
         <description>A small landing with stairs leading leading down to the ground floor.</description>
         <items></items>
         <puzzles></puzzles>
