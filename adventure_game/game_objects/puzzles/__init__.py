@@ -1,2 +1,2 @@
-from .harder_lab_puzzle import HarderLabPuzzle
-from .restaurant_puzzle import RestaurantPuzzle
+from .bathtub_dilemma import BathtubDilemma
+from .bubble_bath_dilemma import BubbleBathDilemma

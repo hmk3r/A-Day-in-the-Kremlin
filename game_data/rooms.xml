@@ -33,7 +33,7 @@
         <items>
         </items>
         <puzzles>
-            <puzzle>challenge</puzzle>
+            <puzzle>bathtub_dilemma</puzzle>
         </puzzles>
         <exits>
             <east>cleaning_cupboard</east>
@@ -56,11 +56,11 @@
         <name>Cleaning Cupboard</name>
         <description>A small room full of various from of cleaning products and a large picture of Lenin's right leg.</description>
         <items>
-            <item>toilet_cleaner</item>      
-            <item>bubblebath_lemon</item>
-            <item>bubblebath_power</item>
+            <item>toilet_cleaner</item>
         </items>
-        <puzzles></puzzles>
+        <puzzles>
+            <puzzle>bubble_bath_dilemma</puzzle>
+        </puzzles>
         <exits>
             <west>bathroom</west>
         </exits>
@@ -160,6 +160,7 @@ s        <name>The Grand Hall</name>
             <left>bad_room</left>
             <forward>bad_room</forward>
             <right>torture_room</right>
+            <back>stairs3</back>
         </exits>
     </room>
     <room id="bad_room">

@@ -193,7 +193,7 @@ class GameEngine(IEngine):
 
         for puzzle in self.player.location.puzzles:
             if not puzzle.is_solved:
-                self.writer.write("Type SOLVE {0} to solve {1}.".format(puzzle.id.upper(), puzzle.name))
+                self.writer.write("Type SOLVE {0} to {1}.".format(puzzle.id.upper(), puzzle.name))
 
         for item in self.player.location.items:
             self.writer.write("Type TAKE {0} to take {1}".format(item.id.upper(), item.name))
