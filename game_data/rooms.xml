@@ -44,7 +44,7 @@
     </room>
     <room id="toilet">
         <name>The Golden Throne</name>
-        <description>You are in the toilet which has been heavily decorated in Stalin's favourite colour 'Flamingo Pink'. The dim light and horrendous smell already makes you feel like you've walked into a sewer only it's stuffy and warm. A portrait of his beloved mother hangs above the sink... Christ she looks just like him. A gold plated toilet sits in the far corner which Stalin calls his 'Throne' and no wonder why! The horrible smell is obviously coming from under the seat... your only hope is to plead that Stalin has had a light lunch. You approach without heaving... Doesn't this man know how to flush?!</description>
+        <description>You are in the toilet which has been heavily decorated in Stalin's favourite colour 'Flamingo Pink'. The dim light and horrendous smell already makes you feel like you've walked into a sewer, only it's stuffy and warm. A portrait of his beloved mother hangs above the sink... Christ she looks just like him. A gold plated toilet sits in the far corner which Stalin calls his 'Throne' and no wonder why! The horrible smell is obviously coming from under the seat... your only hope is to plead that Stalin has had a light lunch. You approach without heaving... Doesn't this man know how to flush?!</description>
         <items>
             <item>toilet_brush</item>
         </items>
