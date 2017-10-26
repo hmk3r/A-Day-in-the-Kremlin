@@ -36,7 +36,7 @@ class GameEngine(IEngine):
         except KeyboardInterrupt:
             self.writer.write_separator()
             self.writer.write_separator()
-            self.writer.write("Thanks for playing! You're welcome back anytime!")
+            self.writer.write_info("Thanks for playing! You're welcome back anytime!")
             self.writer.write_separator()
 
     def setup(self):
@@ -62,14 +62,14 @@ class GameEngine(IEngine):
 
         if direction not in self.player.location.exits:
             self.writer.write_separator()
-            self.writer.write("Invalid direction")
+            self.writer.write_error("Invalid direction")
             return
 
         next_room = self.get_next_room(self.player.location.exits[direction])
 
         if not next_room:
             self.writer.write_separator()
-            self.writer.write("You can't go there")
+            self.writer.write_error("You can't go there")
             return
 
         self.player.move_to(next_room)
@@ -77,7 +77,7 @@ class GameEngine(IEngine):
     def execute_look(self, item_id):
         if item_id not in self.items:
             self.writer.write_separator()
-            self.writer.write("This item does not exist")
+            self.writer.write_error("This item does not exist")
             return
         item = self.items[item_id]
 
@@ -86,18 +86,18 @@ class GameEngine(IEngine):
             self.writer.write(item.description)
         else:
             self.writer.write_separator()
-            self.writer.write("You can't inspect this item right now.")
+            self.writer.write_error("You can't inspect this item right now.")
 
     def execute_take(self, item_id):
         if item_id not in self.items:
             self.writer.write_separator()
-            self.writer.write("No such thing exists")
+            self.writer.write_error("No such thing exists")
             return
         item = self.items[item_id]
 
         if item not in self.player.location.items:
             self.writer.write_separator()
-            self.writer.write("There's no such item in the room")
+            self.writer.write_error("There's no such item in the room")
             return
 
         if len(self.player.inventory) < PLAYER_MAX_INVENTORY_CAPACITY:
@@ -105,18 +105,18 @@ class GameEngine(IEngine):
             self.player.take_item(item)
         else:
             self.writer.write_separator()
-            self.writer.write("You can carry only up to {0} items at once!".format(PLAYER_MAX_INVENTORY_CAPACITY))
+            self.writer.write_error("You can carry only up to {0} items at once!".format(PLAYER_MAX_INVENTORY_CAPACITY))
 
     def execute_drop(self, item_id):
         if item_id not in self.items:
             self.writer.write_separator()
-            self.writer.write("No such thing exists")
+            self.writer.write_error("No such thing exists")
             return
         item = self.items[item_id]
 
         if item not in self.player.inventory:
             self.writer.write_separator()
-            self.writer.write("You don't have this item")
+            self.writer.write_error("You don't have this item")
             return
 
         self.player.inventory.remove(item)
@@ -125,33 +125,33 @@ class GameEngine(IEngine):
     def execute_solve(self, puzzle_id):
         if puzzle_id not in self.puzzles:
             self.writer.write_separator()
-            self.writer.write("There's no such puzzle")
+            self.writer.write_error("There's no such puzzle")
             return
         puzzle = self.puzzles[puzzle_id]
 
         if puzzle not in self.player.location.puzzles:
             self.writer.write_separator()
-            self.writer.write("You can't solve this puzzle right now")
+            self.writer.write_error("You can't solve this puzzle right now")
             return
 
         if puzzle.is_solved:
             self.writer.write_separator()
-            self.writer.write("You've already solved this puzzle")
+            self.writer.write_error("You've already solved this puzzle")
             return
 
         if not set(puzzle.required_items).issubset(self.player.inventory):
             self.writer.write_separator()
-            self.writer.write("You don't have the required items to complete this puzzle!")
-            self.writer.write("Think logically and you'll find out what you need.")
+            self.writer.write_error("You don't have the required items to complete this puzzle!")
+            self.writer.write_error("Think logically and you'll find out what you need.")
             return
 
         if puzzle.reward and (not puzzle.takes_items) and (len(self.player.inventory) == PLAYER_MAX_INVENTORY_CAPACITY):
             self.writer.write_separator()
-            self.writer.write("You don't have enough space in your inventory to collect the reward from the puzzle. Please drop something an try again!")
+            self.writer.write_error("You don't have enough space in your inventory to collect the reward from the puzzle. Please drop something an try again!")
             return
 
         self.writer.write_separator()
-        self.writer.write(puzzle.name.upper())
+        self.writer.write_info(puzzle.name.upper())
 
         self.writer.write_separator()
         if puzzle.is_annoying:
@@ -163,7 +163,7 @@ class GameEngine(IEngine):
             self.writer.write("You'll get {0} if you solve this correctly".format(puzzle.reward.name))
 
         self.writer.write_separator()
-        self.writer.write("Possible answers:")
+        self.writer.write_info("Possible answers:")
         for possible_answer in puzzle.possible_answers:
             self.writer.write(possible_answer)
 
@@ -171,7 +171,7 @@ class GameEngine(IEngine):
         answer = self.parser.normalise_string(answer_raw)
         if puzzle.answer_is_correct(answer):
             self.writer.write_separator()
-            self.writer.write("Correct answer!")
+            self.writer.write_success("Correct answer!")
             if puzzle.win_message:
                 self.writer.write(puzzle.win_message)
             if puzzle.reward:
@@ -180,12 +180,13 @@ class GameEngine(IEngine):
                 for used_item in puzzle.required_items:
                     self.player.drop_item(used_item)
         else:
-            self.writer.write("Wrong answer!")
+            self.writer.write_separator()
+            self.writer.write_error("Wrong answer!")
 
     def execute_suicide(self):
         happiness = self.items["happiness"]
         if happiness in self.player.inventory:
-            self.writer.write("You are still happy! Why would you even consider doing that?")
+            self.writer.write_error("You are still happy! Why would you even consider doing that?")
             return
 
         raise PlayerDeadException("You've killed yourself, but your spirit is not free. Instead of ending up in front of the Heaven's door, your spirit was transferred to GULAG!")
@@ -195,41 +196,43 @@ class GameEngine(IEngine):
         if 0 == len(command):
             return
 
+        self.writer.write_separator()
+
         if command[0] == constants.COMMAND_GO:
             if len(command) > 1:
                 self.execute_go(command[1])
             else:
-                self.writer.write("Go where?")
+                self.writer.write_error("Go where?")
 
         elif command[0] == constants.COMMAND_TAKE:
             if len(command) > 1:
                 self.execute_take(command[1])
             else:
-                self.writer.write("Take what?")
+                self.writer.write_error("Take what?")
 
         elif command[0] == constants.COMMAND_DROP:
             if len(command) > 1:
                 self.execute_drop(command[1])
             else:
-                self.writer.write("Drop what?")
+                self.writer.write_error("Drop what?")
 
         elif command[0] == constants.COMMAND_SOLVE:
             if len(command) > 1:
                 self.execute_solve(command[1])
             else:
-                self.writer.write("Solve what?")
+                self.writer.write_error("Solve what?")
         
         elif command[0] == constants.COMMAND_LOOK:
             if len(command) > 1:
                 self.execute_look(command[1])
             else:
-                self.writer.write("Look at what?")
+                self.writer.write_error("Look at what?")
         elif command[0] == constants.COMMAND_SUICIDE:
             self.execute_suicide()
         elif command[0] == constants.COMMAND_RESTART:
             self.restart()
         else:
-            self.writer.write("This makes no sense.")
+            self.writer.write_error("This makes no sense.")
 
     def stringify_items(self, items):
         separator = ", "
@@ -241,7 +244,7 @@ class GameEngine(IEngine):
 
     def print_current_game_info(self):
         self.writer.write_separator()
-        self.writer.write(self.player.location.name.upper())
+        self.writer.write_info(self.player.location.name.upper())
         self.writer.write_separator()
 
         self.writer.write(self.player.location.description)
@@ -257,7 +260,7 @@ class GameEngine(IEngine):
 
         self.writer.write_separator()
 
-        self.writer.write("You can:")
+        self.writer.write_info("You can:")
 
         for puzzle in self.player.location.puzzles:
             if not puzzle.is_solved:
@@ -280,7 +283,7 @@ class GameEngine(IEngine):
 
         happiness = self.items["happiness"]
         if happiness not in self.player.inventory:
-            print("Type SUICIDE to kill yourself and escape this communist hell once and for all.")
+            self.writer.write_error("Type SUICIDE to kill yourself and escape this communist hell once and for all.")
 
     def print_welcome_screen(self):
         message = """
@@ -317,7 +320,7 @@ Good luck!
                                                            
 """
         self.writer.clear()
-        self.writer.write(gulag)
+        self.writer.write_error(gulag)
         self.writer.write(cause_of_death)
         self.writer.write("Better luck next time!")
         self.reader.read_input("Press any key to exit...")

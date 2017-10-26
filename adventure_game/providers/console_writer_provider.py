@@ -2,9 +2,13 @@ import os
 import time
 import sys
 from adventure_game.contracts import IWriter
+from colorama import init, Fore
 
 
 class ConsoleWriterProvider(IWriter):
+    def __init__(self):
+        init(autoreset=True)
+
     def write(self, text):
         print(text)
 
@@ -22,6 +26,15 @@ class ConsoleWriterProvider(IWriter):
 
     def write_separator(self):
         print()
+
+    def write_info(self, text):
+        print(Fore.BLUE + text)
+
+    def write_error(self, error):
+        print(Fore.RED + error)
+
+    def write_success(self, message):
+        print(Fore.GREEN + message)
 
     # reference:
     # https://stackoverflow.com/questions/2084508/clear-terminal-in-python Jan 18 '10 at 7:34
