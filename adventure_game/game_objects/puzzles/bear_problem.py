@@ -2,9 +2,9 @@ from adventure_game.models import Puzzle
 from adventure_game.exceptions import PlayerDeadException
 
 
-class BearDilemma(Puzzle):
+class BearProblem(Puzzle):
     def __init__(self):
-        super().__init__("bear_dilemma")
+        super().__init__("bear_problem")
 
     def answer_is_correct(self, answer):
         if answer == self.correct_answer:

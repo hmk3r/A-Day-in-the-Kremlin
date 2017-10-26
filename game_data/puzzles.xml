@@ -1,45 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <puzzles>
-    <puzzle id="quest">
+    <puzzle id="capitalistic_problem">
         <name>make a tough choice</name>
         <description>How do you want to kill the capitalist prisoners?</description>
         <possible_answers>
-            <answer>1) Kill the Father first, then the mother and then the child. The child will witness the murder of its own parents, before being killed.</answer>
-            <answer>2) Kill the Mother and the father but let the child go. The will witness the murder of its parents, and have to live with the psychological trauma for the rest of it's life. </answer>
+            <answer>1) Kill the Father first, then the mother and then the child. The child will witness the murder of its own parents,
+before being killed.</answer>
+            <answer>2) Kill the Mother and the father but let the child go. It will witness the murder of its parents, and have to
+live with the psychological trauma for the rest of it's life.</answer>
             <answer>3) Kill the child and then the mother while letting the father go, sending a message to other rebellious citizens.</answer>
         </possible_answers>
         <correct_answer>3</correct_answer>
     </puzzle>
     <puzzle id="bubble_bath_dilemma">
         <name>choose a bubble bath for Stalin</name>
-        <description>You notice two bubble bath flasks. One is lemon scented and the other is nothing special, but it has a stamp "Made in USSR". Which one do you chose?</description>
+        <description>
+You notice two bubble bath flasks. One is lemon scented and the other is nothing special, but it has a stamp "Sdelano v CCCP".
+Which one do you chose?
+        </description>
         <possible_answers>
             <answer>1) Lemon scented</answer>
             <answer>2) The ordinary one</answer>
         </possible_answers>
         <correct_answer>2</correct_answer>
-t        <win_message>Good job, comrade! Stalin likes everything that's made in his kingdom and, most importantly, hates lemons. Here's the bubble bath.</win_message>
+t        <win_message>Good job, comrade! Stalin likes everything that's made in his kingdom and, most importantly, hates lemons.</win_message>
         <reward_item_id>bubble_bath</reward_item_id>
     </puzzle>
     <puzzle id="bathtub_dilemma" takes_items="" is_annoying="">
         <name>prepare Stalin's bathtub</name>
-        <description>You have to prepare your leader's bathtub. You know you need to add in some of that bubble bath thing, but you don't know how much caps to pour in exactly. You have to make a lucky guess.</description>
+        <description>
+You have to prepare your leader's bathtub. You know you need to add in some of that bubble bath thing, but you don't know
+how many caps to pour in exactly. You have to make a lucky guess.</description>
         <possible_answers>
             <answer>Number of caps: Any number between 0 and 3</answer>
         </possible_answers>
         <correct_answer>4</correct_answer>
-        <win_message>Stalin always wants you to overdeliver, 110% everytime, but to be careful while doing it. Proceed with your other tasks comrade!</win_message>
+        <win_message>
+Stalin always wants you to overdeliver, 110% every time, but to be careful while doing it.
+Proceed with your other tasks comrade!
+        </win_message>
         <required_items>
             <item>bubble_bath</item>
         </required_items>
     </puzzle>
     <puzzle id="drink_dilemma" takes_items="">
-        <name>pour Stalin a drink with the his lunch.</name>
+        <name>pour Stalin a drink with his lunch</name>
         <description>You have managed to get the right lunch, but do you know what Stalin likes to accompany his lunch.</description>
         <possible_answers>
             <answer>1) Some refreshing water collected from a spring in a local meadow.</answer>
             <answer>2) A small decanter filled with a secret blend, creating a potent mix that only the most willful of men can drink.</answer>
-            <answer>3) Robinsons Fruit Shoot Blackcurrent and Apple for his drink (light, fruity and aromatic, 3 of his favourite factors while choosing a drink).</answer>
+            <answer>3) Robinson's Fruit Shoot Blackcurrent and Apple for his drink (light, fruity and aromatic,
+3 of his favourite factors while choosing a drink).</answer>
         </possible_answers>
         <correct_answer>1</correct_answer>
         <win_message>You have made a good choice, you know Stalin only drinks water during the day.</win_message>
@@ -49,20 +60,24 @@ t        <win_message>Good job, comrade! Stalin likes everything that's made in 
     </puzzle>
     <puzzle id="toilet_dilemma" takes_items="" is_annoying="">
         <name>clean Stalin's Golden Throne</name>
-        <description>How do you want to clean the toilet?</description>
+        <description>
+You have a toilet brush and a toilet cleaner. However, no one told you that you'll need a gas mask. Stalin has eaten shashlik recently
+and the smell is undeniably unpleasant. Before you suffocate, have to decide:
+How do you want to clean the toilet?
+        </description>
         <possible_answers>
             <answer>1) Slowly and carefully, you approach this task in the same way a painter would approach a blank canvas.</answer>
             <answer>2) Roughly and with gusto, like a miner through a coal vein.</answer>
             <answer>3) Firm but fair, like a mother you take a middle ground when you clean the toilet.</answer>
         </possible_answers>
         <correct_answer>3</correct_answer>
-        <win_message>You have cleaned with the correct amount of gusto. Stalin approves.</win_message>
+        <win_message>You have cleaned with the correct amount of gusto. Stalin approves. The smell, however, is still terrible.</win_message>
         <required_items>
             <item>toilet_brush</item>
             <item>toilet_cleaner</item>
         </required_items>
     </puzzle>
-    <puzzle id="bear_dilemma" takes_items="" is_annoying="">
+    <puzzle id="bear_problem" takes_items="">
         <name>tame Kirillina</name>
         <description>How do you want to tackle restraining Kirillina? </description>
         <possible_answers>
