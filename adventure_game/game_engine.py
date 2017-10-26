@@ -1,4 +1,4 @@
-from adventure_game.contracts import *
+from adventure_game.contracts import IEngine
 from adventure_game.exceptions import PlayerDeadException
 import adventure_game.constants as constants
 
@@ -9,7 +9,7 @@ class GameEngine(IEngine):
     puzzles = {}
     player = None
 
-    def __init__(self, writer: IWriter, reader: IReader, parser: IParser, objects_loader: IObjectsLoader):
+    def __init__(self, writer, reader, parser, objects_loader):
         self.writer = writer
         self.reader = reader
         self.parser = parser

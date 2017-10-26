@@ -4,7 +4,7 @@
     <xi:include href="puzzles.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <xi:include href="rooms.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <player>
-        <name>John Doe</name>
+        <name>Igor</name>
         <location>reception</location>
         <inventory>
             <item>happiness</item>
