@@ -2,6 +2,8 @@ from adventure_game.contracts import *
 from adventure_game.exceptions import PlayerDeadException
 import adventure_game.constants as constants
 
+PLAYER_MAX_INVENTORY_CAPACITY = 4
+
 
 class GameEngine(IEngine):
     rooms = {}
@@ -98,8 +100,12 @@ class GameEngine(IEngine):
             self.writer.write("There's no such item in the room")
             return
 
-        self.player.location.items.remove(item)
-        self.player.take_item(item)
+        if len(self.player.inventory) < PLAYER_MAX_INVENTORY_CAPACITY:
+            self.player.location.items.remove(item)
+            self.player.take_item(item)
+        else:
+            self.writer.write_separator()
+            self.writer.write("You can carry only up to {0} items at once!".format(PLAYER_MAX_INVENTORY_CAPACITY))
 
     def execute_drop(self, item_id):
         if item_id not in self.items:
@@ -137,6 +143,11 @@ class GameEngine(IEngine):
             self.writer.write_separator()
             self.writer.write("You don't have the required items to complete this puzzle!")
             self.writer.write("Think logically and you'll find out what you need.")
+            return
+
+        if puzzle.reward and (not puzzle.takes_items) and (len(self.player.inventory) == PLAYER_MAX_INVENTORY_CAPACITY):
+            self.writer.write_separator()
+            self.writer.write("You don't have enough space in your inventory to collect the reward from the puzzle. Please drop something an try again!")
             return
 
         self.writer.write_separator()
