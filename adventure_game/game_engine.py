@@ -220,12 +220,30 @@ class GameEngine(IEngine):
         else:
             self.writer.write("This makes no sense.")
 
+    def stringify_items(self, items):
+        separator = ", "
+        item_names = []
+        for item in items:
+            item_names.append(item.name)
+
+        return separator.join(item_names)
+
     def print_current_game_info(self):
         self.writer.write_separator()
         self.writer.write(self.player.location.name.upper())
         self.writer.write_separator()
 
         self.writer.write(self.player.location.description)
+        self.writer.write_separator()
+
+        if len(self.player.location.items) > 0:
+            self.writer.write("In this room you can find {0}.".format(self.stringify_items(self.player.location.items)))
+
+        if len(self.player.inventory) > 0:
+            self.writer.write("You have {0}.".format(self.stringify_items(self.player.inventory)))
+        else:
+            self.writer.write("You don't have anything.")
+
         self.writer.write_separator()
 
         self.writer.write("You can:")
