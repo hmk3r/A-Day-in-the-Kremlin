@@ -1,6 +1,13 @@
 from adventure_game.models import Puzzle
 from adventure_game.exceptions import PlayerDeadException
 
+ANSWER_ROUGH = "2"
+ANSWER_SOFT = "1"
+ANSWER_ROUGH_ERROR_MESSAGE = """Well you blew it. You scratched the golden bog and you got sent to the Gulag. 
+You will spend the rest of your days working generous 14 hour day’s until you freeze to death yay!
+"""
+ANSWER_SOFT_ERROR_MESSAGE = "You barely clean the toilet, Stalin has your family publicly executed from treason and sends you to GULAG!"
+
 
 class ToiletDilemma(Puzzle):
     def __init__(self):
@@ -11,14 +18,10 @@ class ToiletDilemma(Puzzle):
             self._is_solved = True
             return True
 
-        if answer == "2":
-            reason = """Well you blew it. You scratched the golden bog and you got sent to the Gulag. 
-You will spend the rest of your days working generous 14 hour day’s until you freeze to death yay!
-"""
-            raise PlayerDeadException(reason)
+        if answer == ANSWER_ROUGH:
+            raise PlayerDeadException(ANSWER_ROUGH_ERROR_MESSAGE)
 
-        if answer == "1":
-            reason = "You barely clean the toilet, stalin has you, and your family, pubically executed from treason."
-            raise PlayerDeadException(reason)
+        if answer == ANSWER_SOFT:
+            raise PlayerDeadException(ANSWER_SOFT_ERROR_MESSAGE)
 
         return False

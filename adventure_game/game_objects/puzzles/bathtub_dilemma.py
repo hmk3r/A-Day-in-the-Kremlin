@@ -1,6 +1,9 @@
 from adventure_game.models import Puzzle
 from adventure_game.exceptions import PlayerDeadException
 
+NOT_ENOUGH_BUBBLES_ERROR_MESSAGE = "YOU'VE FAILED COMRADE! Stalin loves bubbles. Try with more next time. GULAG!"
+FLOODED_BATH_ERROR_MESSAGE = "The whole room turns into a bathtub. Stalin rushes in with fury and sends you to GULAG!"
+
 
 class BathtubDilemma(Puzzle):
     def __init__(self):
@@ -18,10 +21,8 @@ class BathtubDilemma(Puzzle):
             return True
 
         if answer < correct_answer:
-            reason = "YOU'VE FAILED COMRADE! Stalin loves bubbles. Try with more next time. GULAG!"
-            raise PlayerDeadException(reason)
+            raise PlayerDeadException(NOT_ENOUGH_BUBBLES_ERROR_MESSAGE)
 
         if answer > correct_answer:
-            reason = "The whole room turns into a bathtub. Stalin rushes in with fury and sends you to GULAG!"
-            raise PlayerDeadException(reason)
+            raise PlayerDeadException(FLOODED_BATH_ERROR_MESSAGE)
 

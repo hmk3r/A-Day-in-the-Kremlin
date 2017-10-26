@@ -1,5 +1,9 @@
 from adventure_game.models import Room
 
+BEAR_ITEM_ID = "bear"
+SPLIT_POINT_ROOM_DESCRIPTION = "It's open and"
+ROOM_DESCRIPTION_UPDATE = "Kirillina's in there and she seems to be sleeping."
+
 
 class Reception(Room):
     def __init__(self):
@@ -12,10 +16,10 @@ class Reception(Room):
             return True
 
         for item in self.items:
-            if item.id == "bear" and not self._is_bear_in_room:
+            if item.id == BEAR_ITEM_ID and not self._is_bear_in_room:
                 self._is_bear_in_room = True
                 self.items.remove(item)
-                self.description = self.description.split("It's open and", 1)[0] + "Kirillina's in there and she seems to be sleeping."
+                self.description = self.description.split(SPLIT_POINT_ROOM_DESCRIPTION, 1)[0] + ROOM_DESCRIPTION_UPDATE
 
         self._is_completed = self._is_bear_in_room
 
