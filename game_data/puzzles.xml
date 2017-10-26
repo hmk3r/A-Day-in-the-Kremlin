@@ -16,8 +16,7 @@ live with the psychological trauma for the rest of it's life.</answer>
         <name>choose a bubble bath for Stalin</name>
         <description>
 You notice two bubble bath flasks. One is lemon scented and the other is nothing special, but it has a stamp "Sdelano v CCCP".
-Which one do you chose?
-        </description>
+Which one do you chose?</description>
         <possible_answers>
             <answer>1) Lemon scented</answer>
             <answer>2) The ordinary one</answer>
@@ -62,9 +61,8 @@ Proceed with your other tasks comrade!
         <name>clean Stalin's Golden Throne</name>
         <description>
 You have a toilet brush and a toilet cleaner. However, no one told you that you'll need a gas mask. Stalin has eaten shashlik recently
-and the smell is undeniably unpleasant. Before you suffocate, have to decide:
-How do you want to clean the toilet?
-        </description>
+and the smell is undeniably unpleasant. Before you suffocate, you have to decide:
+How do you want to clean the toilet?</description>
         <possible_answers>
             <answer>1) Slowly and carefully, you approach this task in the same way a painter would approach a blank canvas.</answer>
             <answer>2) Roughly and with gusto, like a miner through a coal vein.</answer>

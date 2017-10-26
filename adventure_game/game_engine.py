@@ -18,7 +18,7 @@ class GameEngine(IEngine):
 
     def run(self):
         try:
-            self.writer.clear()
+            self.print_welcome_screen()
             while True:
                 self.print_current_game_info()
 
@@ -27,17 +27,18 @@ class GameEngine(IEngine):
                 self.writer.clear()
                 self.execute_command(command)
                 if self.check_win():
-                    # Display end game screen
-                    raise PlayerDeadException("Congratulations, You have managed to survive the day. I hope you've enjoyed, because you will be doing it all over again tommorrow. Good Luck xoxo")
+                    self.print_game_won_screen()
+                    break
         except PlayerDeadException as player_dead_exception:
-            self.writer.write_separator()
-            self.writer.write(str(player_dead_exception))
-            self.writer.write_separator()
+            self.print_game_over_screen(str(player_dead_exception))
         except KeyboardInterrupt:
             self.writer.write_separator()
             self.writer.write_separator()
             self.writer.write("Thanks for playing! You're welcome back anytime!")
             self.writer.write_separator()
+
+    def setup(self):
+        [self.items, self.puzzles, self.rooms, self.player] = self.objects_loader.load()
 
     def restart(self):
         [self.items, self.puzzles, self.rooms, self.player] = self.objects_loader.reload()
@@ -252,5 +253,72 @@ class GameEngine(IEngine):
         if happiness not in self.player.inventory:
             print("Type SUICIDE to kill yourself and escape this communist hell once and for all.")
 
-    def setup(self):
-        [self.items, self.puzzles, self.rooms, self.player] = self.objects_loader.load()
+    def print_welcome_screen(self):
+        message = """
+
+A DAY IN THE KREMLIN
+
+Hello and welcome to our game! 
+
+Are you tired of capitalism? Have you ever wanted to experience communism? 
+This game will teleport you back to the time of Stalin, placing you in the centre of the USSR - Kremlin.
+The rules are simple really, just don't die. You are Stalin's aid and he has a few jobs for you to do... check the list 
+to keep track and don't upset Stalin or it's the Gulag for you. 
+You can type 'RESTART' in order to restart the whole game if you get stuck.
+You can exit the game by pressing Ctrl + C.
+If you're desperate you can leave your happiness behind and a special cheatcode will unlock for you!
+
+Good luck!
+        
+"""
+        self.writer.clear()
+        self.writer.write(message)
+        self.reader.read_input("Press any key to continue...")
+        self.writer.clear()
+
+    def print_game_over_screen(self, cause_of_death):
+        gulag = """
+           _____   _    _   _                    _____   _ 
+          / ____| | |  | | | |          /\      / ____| | |
+         | |  __  | |  | | | |         /  \    | |  __  | |
+         | | |_ | | |  | | | |        / /\ \   | | |_ | | |
+         | |__| | | |__| | | |____   / ____ \  | |__| | |_|
+          \_____|  \____/  |______| /_/    \_\  \_____| (_)
+                                                           
+                                                           
+"""
+        self.writer.clear()
+        self.writer.write(gulag)
+        self.writer.write(cause_of_death)
+        self.writer.write("Better luck next time!")
+        self.reader.read_input("Press any key to exit...")
+
+    def print_game_won_screen(self):
+        flag = """
+                         '
+                        '@'
+                       '@@@'
+                      '@@@@@'
+               '@@@@@@@@@@@@@@@@@@@'
+                 '@@@@@@@@@@@@@@@'
+                   '@@@@@@@@@@@'
+                  '@@@@@@'@@@@@@'
+                  @@@@'     '@@@@
+                 ;@'           '@;
+                   _   _   _   _
+                  (   (   (   |_)
+                   ~   ~   ~  |
+
+        """
+
+        message = """
+Congratulations, comrade! 
+You have managed to survive the day! I hope you've enjoyed, because you will be doing it all over again tomorrow. 
+Good Luck xoxo
+"""
+        self.writer.clear()
+        self.writer.write(flag)
+        self.writer.write(message)
+        self.reader.read_input("Press any key to exit...")
+
+
